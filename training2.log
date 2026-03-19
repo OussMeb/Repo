@@ -1,0 +1,148 @@
+2026-03-17 13:51:09,713 | INFO | Model built: 2.94M parameters
+2026-03-17 13:51:09,720 | INFO | Model initialized successfully
+2026-03-17 13:51:09,720 | INFO | ==================================================
+2026-03-17 13:51:09,720 | INFO | Configuration:
+2026-03-17 13:51:09,720 | INFO | ==================================================
+2026-03-17 13:51:09,720 | INFO | 
+[data]
+2026-03-17 13:51:09,720 | INFO |   path: /mnt/LeGrosDisque/Julien/sianogramme/JUJU
+2026-03-17 13:51:09,720 | INFO |   split_json: /mnt/LeGrosDisque/Julien/sianogramme/JUJU/split_manifest.json
+2026-03-17 13:51:09,720 | INFO |   ratio: 0.9
+2026-03-17 13:51:09,720 | INFO |   random_seed: 44
+2026-03-17 13:51:09,720 | INFO |   batch_size: 3
+2026-03-17 13:51:09,720 | INFO |   num_workers: 3
+2026-03-17 13:51:09,720 | INFO |   L: None
+2026-03-17 13:51:09,720 | INFO |   W_in: 64
+2026-03-17 13:51:09,720 | INFO |   W: 64
+2026-03-17 13:51:09,720 | INFO |   augment: True
+2026-03-17 13:51:09,720 | INFO |   cp_unit: 12
+2026-03-17 13:51:09,720 | INFO |   cp_height: 12
+2026-03-17 13:51:09,720 | INFO |   cp_height_px: 12
+2026-03-17 13:51:09,720 | INFO |   split_in_two: False
+2026-03-17 13:51:09,720 | INFO |   patch_cp: 512
+2026-03-17 13:51:09,720 | INFO |   jitter_cp: 64
+2026-03-17 13:51:09,720 | INFO | 
+[model]
+2026-03-17 13:51:09,720 | INFO |   model_name: unet
+2026-03-17 13:51:09,720 | INFO |   in_ch_drr: 16
+2026-03-17 13:51:09,720 | INFO |   out_ch: 1
+2026-03-17 13:51:09,720 | INFO |   base_ch: 64
+2026-03-17 13:51:09,721 | INFO |   depth: 2
+2026-03-17 13:51:09,721 | INFO |   num_groups: 8
+2026-03-17 13:51:09,721 | INFO |   film_extra_dim: 7
+2026-03-17 13:51:09,721 | INFO |   use_sincos_angles: True
+2026-03-17 13:51:09,721 | INFO |   film_hidden: 512
+2026-03-17 13:51:09,721 | INFO |   film_embed_dim: 32
+2026-03-17 13:51:09,721 | INFO |   film_embed_hidden: 64
+2026-03-17 13:51:09,721 | INFO |   use_film_all_levels: True
+2026-03-17 13:51:09,721 | INFO |   film_on_decoder: False
+2026-03-17 13:51:09,721 | INFO |   stem_pre_k: 3
+2026-03-17 13:51:09,721 | INFO |   shoulder_gate: True
+2026-03-17 13:51:09,721 | INFO |   shoulder_oar_index_in_oars: 9
+2026-03-17 13:51:09,721 | INFO |   use_resblocks: True
+2026-03-17 13:51:09,721 | INFO |   res_dropout: 0.05
+2026-03-17 13:51:09,721 | INFO |   bneck_dilated_blocks: 1
+2026-03-17 13:51:09,721 | INFO |   bneck_dropout: 0.1
+2026-03-17 13:51:09,721 | INFO |   bneck_horiz_blocks: 1
+2026-03-17 13:51:09,721 | INFO |   bneck_horiz_k: 11
+2026-03-17 13:51:09,721 | INFO |   bneck_horiz_dropout: 0.1
+2026-03-17 13:51:09,721 | INFO |   use_transformer: False
+2026-03-17 13:51:09,721 | INFO |   d_model: 256
+2026-03-17 13:51:09,721 | INFO |   nhead: 8
+2026-03-17 13:51:09,721 | INFO |   mlp_ratio: 4.0
+2026-03-17 13:51:09,721 | INFO |   transformer_layers: 4
+2026-03-17 13:51:09,721 | INFO |   use_ckpt: False
+2026-03-17 13:51:09,721 | INFO |   pool_w_levels: 0
+2026-03-17 13:51:09,721 | INFO |   pool_w_factor: 2
+2026-03-17 13:51:09,721 | INFO |   shape_debug: False
+2026-03-17 13:51:09,721 | INFO | 
+[training]
+2026-03-17 13:51:09,721 | INFO |   n_epochs: 100
+2026-03-17 13:51:09,721 | INFO |   learning_rate: 0.0008
+2026-03-17 13:51:09,721 | INFO |   weight_decay: 1e-05
+2026-03-17 13:51:09,721 | INFO |   accum_steps: 4
+2026-03-17 13:51:09,721 | INFO |   use_amp: True
+2026-03-17 13:51:09,721 | INFO |   amp_dtype: bf16
+2026-03-17 13:51:09,722 | INFO |   clip_grad_norm: 0.5
+2026-03-17 13:51:09,722 | INFO |   scheduler_patience: 5
+2026-03-17 13:51:09,722 | INFO |   scheduler_factor: 0.5
+2026-03-17 13:51:09,722 | INFO |   scheduler_min_lr: 1e-07
+2026-03-17 13:51:09,722 | INFO |   scheduler_threshold: 0.0001
+2026-03-17 13:51:09,722 | INFO |   scheduler_cooldown: 2
+2026-03-17 13:51:09,722 | INFO |   use_ema: True
+2026-03-17 13:51:09,722 | INFO |   ema_decay: 0.9995
+2026-03-17 13:51:09,722 | INFO |   save_epoch_freq: 5
+2026-03-17 13:51:09,722 | INFO |   validation_freq: 1
+2026-03-17 13:51:09,722 | INFO |   save_best: True
+2026-03-17 13:51:09,722 | INFO |   best_metric: val_loss
+2026-03-17 13:51:09,722 | INFO |   visual_epoch_train: 1
+2026-03-17 13:51:09,722 | INFO |   visual_epoch_val: 1
+2026-03-17 13:51:09,722 | INFO |   visual_batch_train: 650
+2026-03-17 13:51:09,722 | INFO |   visual_batch_val: 45
+2026-03-17 13:51:09,722 | INFO |   dose_min_gy: 49.0
+2026-03-17 13:51:09,722 | INFO |   dose_max_gy: 70.0
+2026-03-17 13:51:09,722 | INFO |   cp_dur_min_sec: 0.285
+2026-03-17 13:51:09,722 | INFO |   cp_dur_max_sec: 0.43
+2026-03-17 13:51:09,722 | INFO |   film_with_presence: True
+2026-03-17 13:51:09,722 | INFO |   log_extra_metrics: True
+2026-03-17 13:51:09,722 | INFO |   wmae_alpha: 0.5
+2026-03-17 13:51:09,722 | INFO | device: cuda
+2026-03-17 13:51:09,722 | INFO | expr_dir: /home/oussama/PycharmProjects/sianogram/runs/20260317_135055__juju__loss=MSELoss__seed=44__sha=c1343257
+2026-03-17 13:51:09,722 | INFO | resume: False
+2026-03-17 13:51:09,722 | INFO | checkpoint_path: None
+2026-03-17 13:51:09,722 | INFO | ==================================================
+2026-03-17 14:01:32,513 | INFO | [Epoch 0] Train - loss=0.0670 | psnr=15.9479 | ssim=0.5191 | mae_cp=0.0848 | corr_cp=0.6741 | gradw=0.0479 | gradcp=0.0356 | fluence=3.2191 | LR=8.0e-04
+2026-03-17 14:02:02,647 | INFO | [Epoch 0] Val - loss=0.1181 | psnr=12.9151 | ssim=0.5814 | mae_cp=0.0906 | corr_cp=0.1539 | gradw=0.0487 | gradcp=0.0352 | fluence=5.6606 | LR=8.0e-04
+2026-03-17 14:02:02,831 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:02:02,831 | INFO | New best model! Val loss: 0.118099
+2026-03-17 14:02:03,026 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:05:17,106 | INFO | [Epoch 1] Train - loss=0.0151 | psnr=18.3087 | ssim=0.7012 | mae_cp=0.0542 | corr_cp=0.7855 | gradw=0.0440 | gradcp=0.0340 | fluence=1.5536 | LR=8.0e-04
+2026-03-17 14:05:23,673 | INFO | [Epoch 1] Val - loss=0.0557 | psnr=14.0533 | ssim=0.6005 | mae_cp=0.0804 | corr_cp=0.4580 | gradw=0.0527 | gradcp=0.0386 | fluence=4.1709 | LR=8.0e-04
+2026-03-17 14:05:24,023 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:05:24,024 | INFO | New best model! Val loss: 0.055688
+2026-03-17 14:05:24,193 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:09:07,012 | INFO | [Epoch 2] Train - loss=0.0133 | psnr=18.8542 | ssim=0.7497 | mae_cp=0.0499 | corr_cp=0.8034 | gradw=0.0425 | gradcp=0.0333 | fluence=1.4019 | LR=8.0e-04
+2026-03-17 14:09:13,537 | INFO | [Epoch 2] Val - loss=0.0402 | psnr=14.9256 | ssim=0.6073 | mae_cp=0.0769 | corr_cp=0.5665 | gradw=0.0531 | gradcp=0.0390 | fluence=2.9405 | LR=8.0e-04
+2026-03-17 14:09:13,877 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:09:13,877 | INFO | New best model! Val loss: 0.040167
+2026-03-17 14:09:14,048 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:13:25,010 | INFO | [Epoch 3] Train - loss=0.0123 | psnr=19.1883 | ssim=0.7705 | mae_cp=0.0476 | corr_cp=0.8124 | gradw=0.0417 | gradcp=0.0328 | fluence=1.2903 | LR=8.0e-04
+2026-03-17 14:13:32,099 | INFO | [Epoch 3] Val - loss=0.0339 | psnr=15.3782 | ssim=0.6157 | mae_cp=0.0758 | corr_cp=0.6130 | gradw=0.0527 | gradcp=0.0385 | fluence=2.4566 | LR=8.0e-04
+2026-03-17 14:13:33,148 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:13:33,148 | INFO | New best model! Val loss: 0.033880
+2026-03-17 14:13:33,606 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:18:38,908 | INFO | [Epoch 4] Train - loss=0.0119 | psnr=19.3584 | ssim=0.7783 | mae_cp=0.0464 | corr_cp=0.8158 | gradw=0.0415 | gradcp=0.0325 | fluence=1.2606 | LR=8.0e-04
+2026-03-17 14:19:08,797 | INFO | [Epoch 4] Val - loss=0.0300 | psnr=15.7135 | ssim=0.6273 | mae_cp=0.0746 | corr_cp=0.6456 | gradw=0.0523 | gradcp=0.0382 | fluence=2.2382 | LR=8.0e-04
+2026-03-17 14:19:09,947 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:19:09,948 | INFO | New best model! Val loss: 0.030023
+2026-03-17 14:19:10,501 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:24:19,803 | INFO | [Epoch 5] Train - loss=0.0115 | psnr=19.5016 | ssim=0.7911 | mae_cp=0.0453 | corr_cp=0.8192 | gradw=0.0412 | gradcp=0.0324 | fluence=1.2251 | LR=8.0e-04
+2026-03-17 14:24:26,820 | INFO | [Epoch 5] Val - loss=0.0274 | psnr=15.9821 | ssim=0.6405 | mae_cp=0.0736 | corr_cp=0.6704 | gradw=0.0520 | gradcp=0.0379 | fluence=2.1512 | LR=8.0e-04
+2026-03-17 14:24:28,233 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:24:28,234 | INFO | New best model! Val loss: 0.027375
+2026-03-17 14:24:29,036 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:29:05,531 | INFO | [Epoch 6] Train - loss=0.0112 | psnr=19.6091 | ssim=0.7885 | mae_cp=0.0449 | corr_cp=0.8243 | gradw=0.0406 | gradcp=0.0320 | fluence=1.2227 | LR=8.0e-04
+2026-03-17 14:29:12,168 | INFO | [Epoch 6] Val - loss=0.0254 | psnr=16.2119 | ssim=0.6519 | mae_cp=0.0726 | corr_cp=0.6900 | gradw=0.0518 | gradcp=0.0378 | fluence=2.1208 | LR=8.0e-04
+2026-03-17 14:29:12,614 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:29:12,615 | INFO | New best model! Val loss: 0.025421
+2026-03-17 14:29:12,857 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:33:02,981 | INFO | [Epoch 7] Train - loss=0.0108 | psnr=19.7840 | ssim=0.7929 | mae_cp=0.0439 | corr_cp=0.8271 | gradw=0.0399 | gradcp=0.0316 | fluence=1.1904 | LR=8.0e-04
+2026-03-17 14:33:09,693 | INFO | [Epoch 7] Val - loss=0.0239 | psnr=16.4189 | ssim=0.6593 | mae_cp=0.0718 | corr_cp=0.7063 | gradw=0.0517 | gradcp=0.0378 | fluence=2.1197 | LR=8.0e-04
+2026-03-17 14:33:10,162 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:33:10,162 | INFO | New best model! Val loss: 0.023900
+2026-03-17 14:33:10,393 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:37:41,148 | INFO | [Epoch 8] Train - loss=0.0107 | psnr=19.8073 | ssim=0.8028 | mae_cp=0.0436 | corr_cp=0.8274 | gradw=0.0404 | gradcp=0.0318 | fluence=1.1636 | LR=8.0e-04
+2026-03-17 14:38:05,727 | INFO | [Epoch 8] Val - loss=0.0226 | psnr=16.6254 | ssim=0.6572 | mae_cp=0.0709 | corr_cp=0.7197 | gradw=0.0517 | gradcp=0.0380 | fluence=2.1084 | LR=8.0e-04
+2026-03-17 14:38:06,379 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:38:06,380 | INFO | New best model! Val loss: 0.022611
+2026-03-17 14:38:06,717 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:43:47,969 | INFO | [Epoch 9] Train - loss=0.0106 | psnr=19.8525 | ssim=0.7996 | mae_cp=0.0433 | corr_cp=0.8269 | gradw=0.0401 | gradcp=0.0317 | fluence=1.1510 | LR=8.0e-04
+2026-03-17 14:44:08,399 | INFO | [Epoch 9] Val - loss=0.0214 | psnr=16.8419 | ssim=0.6322 | mae_cp=0.0702 | corr_cp=0.7314 | gradw=0.0516 | gradcp=0.0381 | fluence=2.0761 | LR=8.0e-04
+2026-03-17 14:44:08,828 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:44:08,829 | INFO | New best model! Val loss: 0.021418
+2026-03-17 14:44:09,051 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-17 14:54:35,824 | INFO | [Epoch 10] Train - loss=0.0104 | psnr=19.9598 | ssim=0.8060 | mae_cp=0.0428 | corr_cp=0.8305 | gradw=0.0398 | gradcp=0.0315 | fluence=1.1354 | LR=8.0e-04
+2026-03-17 14:55:06,981 | INFO | [Epoch 10] Val - loss=0.0204 | psnr=17.0400 | ssim=0.5991 | mae_cp=0.0698 | corr_cp=0.7416 | gradw=0.0515 | gradcp=0.0382 | fluence=2.0660 | LR=8.0e-04
+2026-03-17 14:55:07,365 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-17 14:55:07,366 | INFO | New best model! Val loss: 0.020412
+2026-03-17 14:55:07,580 | INFO | Checkpoint saved: latest=latest.pth
