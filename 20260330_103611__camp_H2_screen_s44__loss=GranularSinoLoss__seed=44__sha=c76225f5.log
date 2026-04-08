@@ -1,0 +1,470 @@
+2026-03-30 10:36:21,278 | INFO | Model built: 26.21M parameters
+2026-03-30 10:36:22,155 | INFO | Model initialized successfully
+2026-03-30 10:36:22,155 | INFO | ==================================================
+2026-03-30 10:36:22,155 | INFO | Configuration:
+2026-03-30 10:36:22,155 | INFO | ==================================================
+2026-03-30 10:36:22,156 | INFO | 
+[data]
+2026-03-30 10:36:22,156 | INFO |   path: /mnt/LeGrosDisque/Julien/sianogramme/JUJU
+2026-03-30 10:36:22,156 | INFO |   split_json: /mnt/LeGrosDisque/Julien/sianogramme/JUJU/split_manifest.json
+2026-03-30 10:36:22,157 | INFO |   ratio: 0.9
+2026-03-30 10:36:22,157 | INFO |   random_seed: 44
+2026-03-30 10:36:22,157 | INFO |   batch_size: 6
+2026-03-30 10:36:22,157 | INFO |   num_workers: 4
+2026-03-30 10:36:22,157 | INFO |   L: None
+2026-03-30 10:36:22,158 | INFO |   W_in: 64
+2026-03-30 10:36:22,158 | INFO |   W: 64
+2026-03-30 10:36:22,158 | INFO |   augment: True
+2026-03-30 10:36:22,158 | INFO |   cp_unit: 12
+2026-03-30 10:36:22,159 | INFO |   cp_height: 12
+2026-03-30 10:36:22,159 | INFO |   cp_height_px: 12
+2026-03-30 10:36:22,159 | INFO |   split_in_two: False
+2026-03-30 10:36:22,159 | INFO |   patch_cp: 640
+2026-03-30 10:36:22,159 | INFO |   patch_in_cp: 640
+2026-03-30 10:36:22,160 | INFO |   patch_out_cp: 512
+2026-03-30 10:36:22,160 | INFO |   halo_cp: 64
+2026-03-30 10:36:22,160 | INFO |   jitter_cp: 32
+2026-03-30 10:36:22,160 | INFO | 
+[model]
+2026-03-30 10:36:22,160 | INFO |   model_name: g1transunet_aniso_leafwise_v1
+2026-03-30 10:36:22,161 | INFO |   in_ch_drr: 16
+2026-03-30 10:36:22,161 | INFO |   out_ch: 1
+2026-03-30 10:36:22,161 | INFO |   base_ch: 128
+2026-03-30 10:36:22,161 | INFO |   depth: 4
+2026-03-30 10:36:22,161 | INFO |   num_groups: 8
+2026-03-30 10:36:22,162 | INFO |   film_extra_dim: 7
+2026-03-30 10:36:22,162 | INFO |   use_sincos_angles: True
+2026-03-30 10:36:22,162 | INFO |   film_hidden: 512
+2026-03-30 10:36:22,162 | INFO |   film_embed_dim: 32
+2026-03-30 10:36:22,162 | INFO |   film_embed_hidden: 64
+2026-03-30 10:36:22,163 | INFO |   use_film_all_levels: True
+2026-03-30 10:36:22,163 | INFO |   film_on_decoder: False
+2026-03-30 10:36:22,163 | INFO |   stem_pre_k: 3
+2026-03-30 10:36:22,163 | INFO |   shoulder_gate: True
+2026-03-30 10:36:22,163 | INFO |   shoulder_oar_index_in_oars: 9
+2026-03-30 10:36:22,164 | INFO |   anisotropic_leafwise: True
+2026-03-30 10:36:22,164 | INFO |   film_light_mode: True
+2026-03-30 10:36:22,164 | INFO |   early_width_mode: nearest
+2026-03-30 10:36:22,164 | INFO |   use_resblocks: True
+2026-03-30 10:36:22,165 | INFO |   res_dropout: 0.05
+2026-03-30 10:36:22,165 | INFO |   bneck_dilated_blocks: 1
+2026-03-30 10:36:22,165 | INFO |   bneck_dropout: 0.1
+2026-03-30 10:36:22,165 | INFO |   bneck_horiz_blocks: 0
+2026-03-30 10:36:22,166 | INFO |   bneck_horiz_k: 11
+2026-03-30 10:36:22,166 | INFO |   bneck_horiz_dropout: 0.1
+2026-03-30 10:36:22,166 | INFO |   use_transformer: False
+2026-03-30 10:36:22,166 | INFO |   d_model: 256
+2026-03-30 10:36:22,166 | INFO |   nhead: 8
+2026-03-30 10:36:22,166 | INFO |   mlp_ratio: 4.0
+2026-03-30 10:36:22,166 | INFO |   transformer_layers: 0
+2026-03-30 10:36:22,166 | INFO |   use_ckpt: False
+2026-03-30 10:36:22,167 | INFO |   pool_w_levels: 0
+2026-03-30 10:36:22,167 | INFO |   pool_w_factor: 2
+2026-03-30 10:36:22,167 | INFO |   shape_debug: False
+2026-03-30 10:36:22,167 | INFO |   use_global_refiner: False
+2026-03-30 10:36:22,167 | INFO |   refiner_hidden: 128
+2026-03-30 10:36:22,167 | INFO |   refiner_layers: 4
+2026-03-30 10:36:22,168 | INFO |   refiner_kernel_size: 5
+2026-03-30 10:36:22,168 | INFO |   refiner_dilations: [1, 2, 4, 8]
+2026-03-30 10:36:22,168 | INFO |   refiner_dropout: 0.05
+2026-03-30 10:36:22,168 | INFO |   refiner_cond_dim: 32
+2026-03-30 10:36:22,168 | INFO |   refiner_alpha_init: 0.0
+2026-03-30 10:36:22,168 | INFO |   use_patch_cp_head: False
+2026-03-30 10:36:22,168 | INFO |   patch_cp_head_hidden: 128
+2026-03-30 10:36:22,169 | INFO |   patch_cp_head_layers: 3
+2026-03-30 10:36:22,169 | INFO |   patch_cp_head_kernel_size: 5
+2026-03-30 10:36:22,169 | INFO |   patch_cp_head_dilations: [1, 2, 4]
+2026-03-30 10:36:22,169 | INFO |   patch_cp_head_dropout: 0.05
+2026-03-30 10:36:22,169 | INFO |   patch_cp_head_alpha_init: 0.0
+2026-03-30 10:36:22,169 | INFO | 
+[training]
+2026-03-30 10:36:22,169 | INFO |   n_epochs: 70
+2026-03-30 10:36:22,169 | INFO |   learning_rate: 8e-05
+2026-03-30 10:36:22,170 | INFO |   weight_decay: 1e-05
+2026-03-30 10:36:22,170 | INFO |   accum_steps: 2
+2026-03-30 10:36:22,170 | INFO |   use_amp: True
+2026-03-30 10:36:22,170 | INFO |   amp_dtype: bf16
+2026-03-30 10:36:22,170 | INFO |   clip_grad_norm: 0.5
+2026-03-30 10:36:22,170 | INFO |   scheduler_patience: 5
+2026-03-30 10:36:22,170 | INFO |   scheduler_factor: 0.5
+2026-03-30 10:36:22,171 | INFO |   scheduler_min_lr: 1e-07
+2026-03-30 10:36:22,171 | INFO |   scheduler_threshold: 0.0001
+2026-03-30 10:36:22,171 | INFO |   scheduler_cooldown: 2
+2026-03-30 10:36:22,171 | INFO |   use_ema: True
+2026-03-30 10:36:22,171 | INFO |   ema_decay: 0.9995
+2026-03-30 10:36:22,171 | INFO |   save_epoch_freq: 5
+2026-03-30 10:36:22,171 | INFO |   validation_freq: 1
+2026-03-30 10:36:22,171 | INFO |   save_best: True
+2026-03-30 10:36:22,172 | INFO |   best_metric: val_loss
+2026-03-30 10:36:22,172 | INFO |   visual_epoch_train: 10
+2026-03-30 10:36:22,172 | INFO |   visual_epoch_val: 5
+2026-03-30 10:36:22,172 | INFO |   visual_batch_train: 999
+2026-03-30 10:36:22,172 | INFO |   visual_batch_val: 999
+2026-03-30 10:36:22,172 | INFO |   dose_min_gy: 49.0
+2026-03-30 10:36:22,172 | INFO |   dose_max_gy: 70.0
+2026-03-30 10:36:22,172 | INFO |   cp_dur_min_sec: 0.285
+2026-03-30 10:36:22,173 | INFO |   cp_dur_max_sec: 0.43
+2026-03-30 10:36:22,173 | INFO |   film_with_presence: True
+2026-03-30 10:36:22,173 | INFO |   log_extra_metrics: True
+2026-03-30 10:36:22,173 | INFO |   wmae_alpha: 0.5
+2026-03-30 10:36:22,173 | INFO |   training_mode: single_stage
+2026-03-30 10:36:22,173 | INFO |   stage1_epochs: 160
+2026-03-30 10:36:22,173 | INFO |   stage2_epochs: 40
+2026-03-30 10:36:22,173 | INFO |   stage2_learning_rate: 0.0001
+2026-03-30 10:36:22,174 | INFO |   freeze_backbone_stage2: True
+2026-03-30 10:36:22,174 | INFO |   lambda_refiner_delta: 0.001
+2026-03-30 10:36:22,174 | INFO |   train_full_batch_size: 1
+2026-03-30 10:36:22,174 | INFO | device: cuda
+2026-03-30 10:36:22,174 | INFO | expr_dir: /home/oussama/PycharmProjects/sianogram/runs/20260330_103611__camp_H2_screen_s44__loss=GranularSinoLoss__seed=44__sha=c76225f5
+2026-03-30 10:36:22,174 | INFO | resume: False
+2026-03-30 10:36:22,174 | INFO | checkpoint_path: None
+2026-03-30 10:36:22,174 | INFO | ==================================================
+2026-03-30 10:49:14,015 | INFO | [Epoch 0] Train - loss=0.2370 | BackgroundLeakMean=0.0229 | BackgroundLeakP99=0.4812 | NullXLeakMax=0.0000 | F1_open=0.4938 | MAE_open=0.2541 | MAE_EnergyCP=2.9080 | LR=8.0e-05
+2026-03-30 10:49:45,658 | INFO | [Epoch 0] Val - loss=0.4931 | BackgroundLeakMean=0.0729 | BackgroundLeakP99=0.6270 | NullXLeakMax=0.0000 | F1_open=0.1981 | MAE_open=0.3957 | MAE_EnergyCP=3.2908 | DenomMin=0.0000 | SeamScore=0.9710 | LR=8.0e-05
+2026-03-30 10:49:46,470 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 10:49:46,470 | INFO | New best model! Val loss: 0.493060
+2026-03-30 10:49:55,067 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 11:00:24,406 | INFO | [Epoch 1] Train - loss=0.1676 | BackgroundLeakMean=0.0147 | BackgroundLeakP99=0.4960 | NullXLeakMax=0.0000 | F1_open=0.5379 | MAE_open=0.2191 | MAE_EnergyCP=2.2156 | LR=8.0e-05
+2026-03-30 11:00:58,790 | INFO | [Epoch 1] Val - loss=0.4000 | BackgroundLeakMean=0.0562 | BackgroundLeakP99=0.5100 | NullXLeakMax=0.0000 | F1_open=0.2345 | MAE_open=0.3848 | MAE_EnergyCP=3.2961 | DenomMin=0.0000 | SeamScore=0.8097 | LR=8.0e-05
+2026-03-30 11:01:21,482 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 11:01:21,483 | INFO | New best model! Val loss: 0.399975
+2026-03-30 11:01:32,221 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 11:12:42,620 | INFO | [Epoch 2] Train - loss=0.1553 | BackgroundLeakMean=0.0124 | BackgroundLeakP99=0.5042 | NullXLeakMax=0.0000 | F1_open=0.5329 | MAE_open=0.2057 | MAE_EnergyCP=2.0139 | LR=8.0e-05
+2026-03-30 11:13:11,627 | INFO | [Epoch 2] Val - loss=0.3326 | BackgroundLeakMean=0.0520 | BackgroundLeakP99=0.4863 | NullXLeakMax=0.0000 | F1_open=0.2827 | MAE_open=0.3564 | MAE_EnergyCP=3.0335 | DenomMin=0.0000 | SeamScore=0.6760 | LR=8.0e-05
+2026-03-30 11:13:31,658 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 11:13:31,659 | INFO | New best model! Val loss: 0.332571
+2026-03-30 11:13:41,457 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 11:23:44,898 | INFO | [Epoch 3] Train - loss=0.1499 | BackgroundLeakMean=0.0116 | BackgroundLeakP99=0.5254 | NullXLeakMax=0.0000 | F1_open=0.5410 | MAE_open=0.1985 | MAE_EnergyCP=1.8906 | LR=8.0e-05
+2026-03-30 11:24:14,663 | INFO | [Epoch 3] Val - loss=0.2923 | BackgroundLeakMean=0.0507 | BackgroundLeakP99=0.4766 | NullXLeakMax=0.0000 | F1_open=0.3119 | MAE_open=0.3273 | MAE_EnergyCP=2.7466 | DenomMin=0.0000 | SeamScore=0.5659 | LR=8.0e-05
+2026-03-30 11:24:58,806 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 11:24:58,807 | INFO | New best model! Val loss: 0.292304
+2026-03-30 11:25:09,021 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 11:35:04,416 | INFO | [Epoch 4] Train - loss=0.1443 | BackgroundLeakMean=0.0105 | BackgroundLeakP99=0.5425 | NullXLeakMax=0.0000 | F1_open=0.5595 | MAE_open=0.1938 | MAE_EnergyCP=1.8164 | LR=8.0e-05
+2026-03-30 11:35:33,510 | INFO | [Epoch 4] Val - loss=0.2658 | BackgroundLeakMean=0.0495 | BackgroundLeakP99=0.4654 | NullXLeakMax=0.0000 | F1_open=0.3268 | MAE_open=0.3030 | MAE_EnergyCP=2.5170 | DenomMin=0.0000 | SeamScore=0.4751 | LR=8.0e-05
+2026-03-30 11:35:51,477 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 11:35:51,478 | INFO | New best model! Val loss: 0.265770
+2026-03-30 11:36:01,564 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 11:46:02,480 | INFO | [Epoch 5] Train - loss=0.1409 | BackgroundLeakMean=0.0101 | BackgroundLeakP99=0.5456 | NullXLeakMax=0.0000 | F1_open=0.5430 | MAE_open=0.1892 | MAE_EnergyCP=1.7486 | LR=8.0e-05
+2026-03-30 11:46:29,085 | INFO | [Epoch 5] Val - loss=0.2463 | BackgroundLeakMean=0.0484 | BackgroundLeakP99=0.4624 | NullXLeakMax=0.0000 | F1_open=0.3351 | MAE_open=0.2822 | MAE_EnergyCP=2.3302 | DenomMin=0.0000 | SeamScore=0.4070 | LR=8.0e-05
+2026-03-30 11:46:53,579 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 11:46:53,580 | INFO | New best model! Val loss: 0.246302
+2026-03-30 11:47:04,835 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 11:57:13,611 | INFO | [Epoch 6] Train - loss=0.1360 | BackgroundLeakMean=0.0094 | BackgroundLeakP99=0.5495 | NullXLeakMax=0.0000 | F1_open=0.5282 | MAE_open=0.1835 | MAE_EnergyCP=1.6479 | LR=8.0e-05
+2026-03-30 11:57:43,192 | INFO | [Epoch 6] Val - loss=0.2320 | BackgroundLeakMean=0.0460 | BackgroundLeakP99=0.4553 | NullXLeakMax=0.0000 | F1_open=0.3386 | MAE_open=0.2685 | MAE_EnergyCP=2.2036 | DenomMin=0.0000 | SeamScore=0.3575 | LR=8.0e-05
+2026-03-30 11:58:01,748 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 11:58:01,753 | INFO | New best model! Val loss: 0.231965
+2026-03-30 11:58:13,705 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 12:09:08,529 | INFO | [Epoch 7] Train - loss=0.1344 | BackgroundLeakMean=0.0093 | BackgroundLeakP99=0.5533 | NullXLeakMax=0.0000 | F1_open=0.5405 | MAE_open=0.1811 | MAE_EnergyCP=1.5992 | LR=8.0e-05
+2026-03-30 12:09:38,418 | INFO | [Epoch 7] Val - loss=0.2207 | BackgroundLeakMean=0.0441 | BackgroundLeakP99=0.4555 | NullXLeakMax=0.0000 | F1_open=0.3403 | MAE_open=0.2568 | MAE_EnergyCP=2.0920 | DenomMin=0.0000 | SeamScore=0.3233 | LR=8.0e-05
+2026-03-30 12:10:04,563 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 12:10:04,564 | INFO | New best model! Val loss: 0.220745
+2026-03-30 12:10:18,282 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 12:20:47,344 | INFO | [Epoch 8] Train - loss=0.1316 | BackgroundLeakMean=0.0090 | BackgroundLeakP99=0.5550 | NullXLeakMax=0.0000 | F1_open=0.5368 | MAE_open=0.1782 | MAE_EnergyCP=1.5623 | LR=8.0e-05
+2026-03-30 12:21:17,846 | INFO | [Epoch 8] Val - loss=0.2112 | BackgroundLeakMean=0.0415 | BackgroundLeakP99=0.4588 | NullXLeakMax=0.0000 | F1_open=0.3411 | MAE_open=0.2475 | MAE_EnergyCP=1.9976 | DenomMin=0.0000 | SeamScore=0.3002 | LR=8.0e-05
+2026-03-30 12:21:47,263 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 12:21:47,264 | INFO | New best model! Val loss: 0.211166
+2026-03-30 12:22:01,565 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 12:32:24,767 | INFO | [Epoch 9] Train - loss=0.1284 | BackgroundLeakMean=0.0087 | BackgroundLeakP99=0.5485 | NullXLeakMax=0.0000 | F1_open=0.5554 | MAE_open=0.1730 | MAE_EnergyCP=1.4861 | LR=8.0e-05
+2026-03-30 12:33:10,462 | INFO | [Epoch 9] Val - loss=0.2038 | BackgroundLeakMean=0.0398 | BackgroundLeakP99=0.4628 | NullXLeakMax=0.0000 | F1_open=0.3413 | MAE_open=0.2397 | MAE_EnergyCP=1.9151 | DenomMin=0.0000 | SeamScore=0.2881 | LR=8.0e-05
+2026-03-30 12:33:44,242 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 12:33:44,243 | INFO | New best model! Val loss: 0.203790
+2026-03-30 12:34:26,483 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 12:45:11,011 | INFO | [Epoch 10] Train - loss=0.1274 | BackgroundLeakMean=0.0085 | BackgroundLeakP99=0.5528 | NullXLeakMax=0.0000 | F1_open=0.5435 | MAE_open=0.1724 | MAE_EnergyCP=1.4800 | LR=8.0e-05
+2026-03-30 12:45:39,753 | INFO | [Epoch 10] Val - loss=0.1973 | BackgroundLeakMean=0.0375 | BackgroundLeakP99=0.4607 | NullXLeakMax=0.0000 | F1_open=0.3415 | MAE_open=0.2349 | MAE_EnergyCP=1.8543 | DenomMin=0.0000 | SeamScore=0.2810 | LR=8.0e-05
+2026-03-30 12:45:53,290 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 12:45:53,291 | INFO | New best model! Val loss: 0.197328
+2026-03-30 12:45:58,488 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 12:55:41,908 | INFO | [Epoch 11] Train - loss=0.1250 | BackgroundLeakMean=0.0083 | BackgroundLeakP99=0.5471 | NullXLeakMax=0.0000 | F1_open=0.5502 | MAE_open=0.1692 | MAE_EnergyCP=1.4264 | LR=8.0e-05
+2026-03-30 12:56:02,830 | INFO | [Epoch 11] Val - loss=0.1917 | BackgroundLeakMean=0.0354 | BackgroundLeakP99=0.4618 | NullXLeakMax=0.0000 | F1_open=0.3415 | MAE_open=0.2306 | MAE_EnergyCP=1.8003 | DenomMin=0.0000 | SeamScore=0.2788 | LR=8.0e-05
+2026-03-30 12:56:07,181 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 12:56:07,182 | INFO | New best model! Val loss: 0.191697
+2026-03-30 12:56:08,916 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 13:05:52,550 | INFO | [Epoch 12] Train - loss=0.1242 | BackgroundLeakMean=0.0081 | BackgroundLeakP99=0.5462 | NullXLeakMax=0.0000 | F1_open=0.5424 | MAE_open=0.1686 | MAE_EnergyCP=1.4212 | LR=8.0e-05
+2026-03-30 13:06:22,452 | INFO | [Epoch 12] Val - loss=0.1864 | BackgroundLeakMean=0.0332 | BackgroundLeakP99=0.4616 | NullXLeakMax=0.0000 | F1_open=0.3417 | MAE_open=0.2273 | MAE_EnergyCP=1.7587 | DenomMin=0.0000 | SeamScore=0.2800 | LR=8.0e-05
+2026-03-30 13:06:25,940 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 13:06:25,941 | INFO | New best model! Val loss: 0.186420
+2026-03-30 13:06:27,453 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 13:16:19,193 | INFO | [Epoch 13] Train - loss=0.1220 | BackgroundLeakMean=0.0078 | BackgroundLeakP99=0.5367 | NullXLeakMax=0.0000 | F1_open=0.5423 | MAE_open=0.1664 | MAE_EnergyCP=1.4078 | LR=8.0e-05
+2026-03-30 13:16:40,281 | INFO | [Epoch 13] Val - loss=0.1816 | BackgroundLeakMean=0.0309 | BackgroundLeakP99=0.4623 | NullXLeakMax=0.0000 | F1_open=0.3419 | MAE_open=0.2245 | MAE_EnergyCP=1.7287 | DenomMin=0.0000 | SeamScore=0.2830 | LR=8.0e-05
+2026-03-30 13:16:44,025 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 13:16:44,025 | INFO | New best model! Val loss: 0.181620
+2026-03-30 13:16:45,895 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 13:26:34,627 | INFO | [Epoch 14] Train - loss=0.1212 | BackgroundLeakMean=0.0078 | BackgroundLeakP99=0.5492 | NullXLeakMax=0.0000 | F1_open=0.5538 | MAE_open=0.1642 | MAE_EnergyCP=1.3612 | LR=8.0e-05
+2026-03-30 13:27:05,015 | INFO | [Epoch 14] Val - loss=0.1772 | BackgroundLeakMean=0.0290 | BackgroundLeakP99=0.4692 | NullXLeakMax=0.0000 | F1_open=0.3420 | MAE_open=0.2206 | MAE_EnergyCP=1.6864 | DenomMin=0.0000 | SeamScore=0.2900 | LR=8.0e-05
+2026-03-30 13:27:10,476 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 13:27:10,477 | INFO | New best model! Val loss: 0.177173
+2026-03-30 13:27:12,130 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 13:37:42,426 | INFO | [Epoch 15] Train - loss=0.1209 | BackgroundLeakMean=0.0077 | BackgroundLeakP99=0.5387 | NullXLeakMax=0.0000 | F1_open=0.5578 | MAE_open=0.1646 | MAE_EnergyCP=1.3896 | LR=8.0e-05
+2026-03-30 13:38:11,630 | INFO | [Epoch 15] Val - loss=0.1735 | BackgroundLeakMean=0.0274 | BackgroundLeakP99=0.4707 | NullXLeakMax=0.0000 | F1_open=0.3421 | MAE_open=0.2182 | MAE_EnergyCP=1.6636 | DenomMin=0.0000 | SeamScore=0.2984 | LR=8.0e-05
+2026-03-30 13:38:16,527 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 13:38:16,528 | INFO | New best model! Val loss: 0.173516
+2026-03-30 13:38:20,660 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 13:48:03,890 | INFO | [Epoch 16] Train - loss=0.1194 | BackgroundLeakMean=0.0076 | BackgroundLeakP99=0.5357 | NullXLeakMax=0.0000 | F1_open=0.5473 | MAE_open=0.1629 | MAE_EnergyCP=1.3502 | LR=8.0e-05
+2026-03-30 13:48:33,658 | INFO | [Epoch 16] Val - loss=0.1698 | BackgroundLeakMean=0.0258 | BackgroundLeakP99=0.4738 | NullXLeakMax=0.0000 | F1_open=0.3423 | MAE_open=0.2155 | MAE_EnergyCP=1.6398 | DenomMin=0.0000 | SeamScore=0.3094 | LR=8.0e-05
+2026-03-30 13:48:51,827 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 13:48:51,830 | INFO | New best model! Val loss: 0.169839
+2026-03-30 13:49:00,978 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 13:58:56,214 | INFO | [Epoch 17] Train - loss=0.1183 | BackgroundLeakMean=0.0073 | BackgroundLeakP99=0.5372 | NullXLeakMax=0.0000 | F1_open=0.5374 | MAE_open=0.1620 | MAE_EnergyCP=1.3276 | LR=8.0e-05
+2026-03-30 13:59:25,034 | INFO | [Epoch 17] Val - loss=0.1665 | BackgroundLeakMean=0.0242 | BackgroundLeakP99=0.4758 | NullXLeakMax=0.0000 | F1_open=0.3424 | MAE_open=0.2138 | MAE_EnergyCP=1.6303 | DenomMin=0.0000 | SeamScore=0.3223 | LR=8.0e-05
+2026-03-30 13:59:44,717 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 13:59:44,718 | INFO | New best model! Val loss: 0.166483
+2026-03-30 13:59:54,820 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 14:09:45,751 | INFO | [Epoch 18] Train - loss=0.1178 | BackgroundLeakMean=0.0073 | BackgroundLeakP99=0.5318 | NullXLeakMax=0.0000 | F1_open=0.5586 | MAE_open=0.1609 | MAE_EnergyCP=1.3278 | LR=8.0e-05
+2026-03-30 14:10:15,184 | INFO | [Epoch 18] Val - loss=0.1632 | BackgroundLeakMean=0.0228 | BackgroundLeakP99=0.4846 | NullXLeakMax=0.0000 | F1_open=0.3425 | MAE_open=0.2109 | MAE_EnergyCP=1.6016 | DenomMin=0.0000 | SeamScore=0.3384 | LR=8.0e-05
+2026-03-30 14:10:35,555 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 14:10:35,556 | INFO | New best model! Val loss: 0.163179
+2026-03-30 14:10:42,667 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 14:20:53,836 | INFO | [Epoch 19] Train - loss=0.1173 | BackgroundLeakMean=0.0071 | BackgroundLeakP99=0.5311 | NullXLeakMax=0.0000 | F1_open=0.5398 | MAE_open=0.1605 | MAE_EnergyCP=1.3238 | LR=8.0e-05
+2026-03-30 14:21:23,156 | INFO | [Epoch 19] Val - loss=0.1602 | BackgroundLeakMean=0.0221 | BackgroundLeakP99=0.4998 | NullXLeakMax=0.0000 | F1_open=0.3423 | MAE_open=0.2065 | MAE_EnergyCP=1.5399 | DenomMin=0.0000 | SeamScore=0.3563 | LR=8.0e-05
+2026-03-30 14:21:41,051 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 14:21:41,053 | INFO | New best model! Val loss: 0.160187
+2026-03-30 14:21:49,564 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 14:32:00,225 | INFO | [Epoch 20] Train - loss=0.1159 | BackgroundLeakMean=0.0071 | BackgroundLeakP99=0.5356 | NullXLeakMax=0.0000 | F1_open=0.5529 | MAE_open=0.1582 | MAE_EnergyCP=1.2797 | LR=8.0e-05
+2026-03-30 14:32:29,476 | INFO | [Epoch 20] Val - loss=0.1571 | BackgroundLeakMean=0.0206 | BackgroundLeakP99=0.5061 | NullXLeakMax=0.0000 | F1_open=0.3425 | MAE_open=0.2042 | MAE_EnergyCP=1.5223 | DenomMin=0.0000 | SeamScore=0.3736 | LR=8.0e-05
+2026-03-30 14:32:48,848 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 14:32:48,849 | INFO | New best model! Val loss: 0.157092
+2026-03-30 14:32:57,183 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 14:42:37,098 | INFO | [Epoch 21] Train - loss=0.1151 | BackgroundLeakMean=0.0070 | BackgroundLeakP99=0.5294 | NullXLeakMax=0.0000 | F1_open=0.5487 | MAE_open=0.1571 | MAE_EnergyCP=1.2668 | LR=8.0e-05
+2026-03-30 14:42:58,278 | INFO | [Epoch 21] Val - loss=0.1545 | BackgroundLeakMean=0.0195 | BackgroundLeakP99=0.5127 | NullXLeakMax=0.0000 | F1_open=0.3424 | MAE_open=0.2022 | MAE_EnergyCP=1.5052 | DenomMin=0.0000 | SeamScore=0.3910 | LR=8.0e-05
+2026-03-30 14:43:02,460 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 14:43:02,460 | INFO | New best model! Val loss: 0.154525
+2026-03-30 14:43:04,251 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 14:53:25,107 | INFO | [Epoch 22] Train - loss=0.1139 | BackgroundLeakMean=0.0069 | BackgroundLeakP99=0.5186 | NullXLeakMax=0.0000 | F1_open=0.5542 | MAE_open=0.1572 | MAE_EnergyCP=1.2887 | LR=8.0e-05
+2026-03-30 14:53:54,347 | INFO | [Epoch 22] Val - loss=0.1519 | BackgroundLeakMean=0.0187 | BackgroundLeakP99=0.5203 | NullXLeakMax=0.0000 | F1_open=0.3423 | MAE_open=0.2000 | MAE_EnergyCP=1.4799 | DenomMin=0.0000 | SeamScore=0.4098 | LR=8.0e-05
+2026-03-30 14:54:04,497 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 14:54:04,497 | INFO | New best model! Val loss: 0.151918
+2026-03-30 14:54:08,782 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 15:05:23,804 | INFO | [Epoch 23] Train - loss=0.1126 | BackgroundLeakMean=0.0067 | BackgroundLeakP99=0.5180 | NullXLeakMax=0.0000 | F1_open=0.5567 | MAE_open=0.1543 | MAE_EnergyCP=1.2413 | LR=8.0e-05
+2026-03-30 15:05:53,230 | INFO | [Epoch 23] Val - loss=0.1495 | BackgroundLeakMean=0.0179 | BackgroundLeakP99=0.5303 | NullXLeakMax=0.0000 | F1_open=0.3423 | MAE_open=0.1975 | MAE_EnergyCP=1.4522 | DenomMin=0.0000 | SeamScore=0.4279 | LR=8.0e-05
+2026-03-30 15:06:13,880 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 15:06:13,880 | INFO | New best model! Val loss: 0.149497
+2026-03-30 15:06:21,201 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 15:16:49,355 | INFO | [Epoch 24] Train - loss=0.1122 | BackgroundLeakMean=0.0068 | BackgroundLeakP99=0.5157 | NullXLeakMax=0.0000 | F1_open=0.5527 | MAE_open=0.1542 | MAE_EnergyCP=1.2371 | LR=8.0e-05
+2026-03-30 15:17:21,275 | INFO | [Epoch 24] Val - loss=0.1474 | BackgroundLeakMean=0.0173 | BackgroundLeakP99=0.5358 | NullXLeakMax=0.0000 | F1_open=0.3422 | MAE_open=0.1955 | MAE_EnergyCP=1.4318 | DenomMin=0.0000 | SeamScore=0.4427 | LR=8.0e-05
+2026-03-30 15:17:41,959 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 15:17:41,959 | INFO | New best model! Val loss: 0.147357
+2026-03-30 15:17:52,581 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 15:27:44,673 | INFO | [Epoch 25] Train - loss=0.1111 | BackgroundLeakMean=0.0066 | BackgroundLeakP99=0.5134 | NullXLeakMax=0.0000 | F1_open=0.5480 | MAE_open=0.1530 | MAE_EnergyCP=1.2190 | LR=8.0e-05
+2026-03-30 15:28:14,081 | INFO | [Epoch 25] Val - loss=0.1453 | BackgroundLeakMean=0.0166 | BackgroundLeakP99=0.5432 | NullXLeakMax=0.0000 | F1_open=0.3421 | MAE_open=0.1931 | MAE_EnergyCP=1.4051 | DenomMin=0.0000 | SeamScore=0.4591 | LR=8.0e-05
+2026-03-30 15:28:27,998 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 15:28:27,999 | INFO | New best model! Val loss: 0.145290
+2026-03-30 15:28:35,866 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 15:38:08,453 | INFO | [Epoch 26] Train - loss=0.1109 | BackgroundLeakMean=0.0067 | BackgroundLeakP99=0.5121 | NullXLeakMax=0.0000 | F1_open=0.5507 | MAE_open=0.1525 | MAE_EnergyCP=1.2154 | LR=8.0e-05
+2026-03-30 15:38:29,862 | INFO | [Epoch 26] Val - loss=0.1434 | BackgroundLeakMean=0.0161 | BackgroundLeakP99=0.5507 | NullXLeakMax=0.0000 | F1_open=0.3421 | MAE_open=0.1910 | MAE_EnergyCP=1.3805 | DenomMin=0.0000 | SeamScore=0.4745 | LR=8.0e-05
+2026-03-30 15:38:41,665 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 15:38:41,666 | INFO | New best model! Val loss: 0.143368
+2026-03-30 15:38:49,610 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 15:48:30,142 | INFO | [Epoch 27] Train - loss=0.1095 | BackgroundLeakMean=0.0064 | BackgroundLeakP99=0.5028 | NullXLeakMax=0.0000 | F1_open=0.5495 | MAE_open=0.1512 | MAE_EnergyCP=1.2174 | LR=8.0e-05
+2026-03-30 15:48:59,808 | INFO | [Epoch 27] Val - loss=0.1412 | BackgroundLeakMean=0.0151 | BackgroundLeakP99=0.5558 | NullXLeakMax=0.0000 | F1_open=0.3423 | MAE_open=0.1895 | MAE_EnergyCP=1.3747 | DenomMin=0.0000 | SeamScore=0.4878 | LR=8.0e-05
+2026-03-30 15:49:10,855 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 15:49:10,856 | INFO | New best model! Val loss: 0.141248
+2026-03-30 15:49:12,980 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 15:59:15,593 | INFO | [Epoch 28] Train - loss=0.1086 | BackgroundLeakMean=0.0064 | BackgroundLeakP99=0.4995 | NullXLeakMax=0.0000 | F1_open=0.5546 | MAE_open=0.1495 | MAE_EnergyCP=1.2022 | LR=8.0e-05
+2026-03-30 15:59:50,572 | INFO | [Epoch 28] Val - loss=0.1395 | BackgroundLeakMean=0.0147 | BackgroundLeakP99=0.5594 | NullXLeakMax=0.0000 | F1_open=0.3423 | MAE_open=0.1878 | MAE_EnergyCP=1.3578 | DenomMin=0.0000 | SeamScore=0.5000 | LR=8.0e-05
+2026-03-30 16:00:35,042 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 16:00:35,043 | INFO | New best model! Val loss: 0.139513
+2026-03-30 16:00:50,842 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 16:11:28,029 | INFO | [Epoch 29] Train - loss=0.1081 | BackgroundLeakMean=0.0063 | BackgroundLeakP99=0.4904 | NullXLeakMax=0.0000 | F1_open=0.5644 | MAE_open=0.1489 | MAE_EnergyCP=1.1821 | LR=8.0e-05
+2026-03-30 16:11:58,737 | INFO | [Epoch 29] Val - loss=0.1380 | BackgroundLeakMean=0.0141 | BackgroundLeakP99=0.5611 | NullXLeakMax=0.0000 | F1_open=0.3424 | MAE_open=0.1864 | MAE_EnergyCP=1.3492 | DenomMin=0.0000 | SeamScore=0.5103 | LR=8.0e-05
+2026-03-30 16:12:17,886 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 16:12:17,887 | INFO | New best model! Val loss: 0.137986
+2026-03-30 16:12:27,399 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 16:23:44,464 | INFO | [Epoch 30] Train - loss=0.1073 | BackgroundLeakMean=0.0061 | BackgroundLeakP99=0.4888 | NullXLeakMax=0.0000 | F1_open=0.5498 | MAE_open=0.1486 | MAE_EnergyCP=1.1721 | LR=8.0e-05
+2026-03-30 16:24:12,103 | INFO | [Epoch 30] Val - loss=0.1364 | BackgroundLeakMean=0.0139 | BackgroundLeakP99=0.5663 | NullXLeakMax=0.0000 | F1_open=0.3423 | MAE_open=0.1844 | MAE_EnergyCP=1.3220 | DenomMin=0.0000 | SeamScore=0.5218 | LR=8.0e-05
+2026-03-30 16:24:39,167 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 16:24:39,167 | INFO | New best model! Val loss: 0.136449
+2026-03-30 16:24:49,084 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 16:34:52,429 | INFO | [Epoch 31] Train - loss=0.1079 | BackgroundLeakMean=0.0061 | BackgroundLeakP99=0.4897 | NullXLeakMax=0.0000 | F1_open=0.5521 | MAE_open=0.1497 | MAE_EnergyCP=1.1983 | LR=8.0e-05
+2026-03-30 16:35:21,601 | INFO | [Epoch 31] Val - loss=0.1350 | BackgroundLeakMean=0.0135 | BackgroundLeakP99=0.5684 | NullXLeakMax=0.0000 | F1_open=0.3424 | MAE_open=0.1830 | MAE_EnergyCP=1.3091 | DenomMin=0.0000 | SeamScore=0.5313 | LR=8.0e-05
+2026-03-30 16:35:40,853 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 16:35:40,853 | INFO | New best model! Val loss: 0.135036
+2026-03-30 16:35:52,018 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 16:47:22,515 | INFO | [Epoch 32] Train - loss=0.1060 | BackgroundLeakMean=0.0061 | BackgroundLeakP99=0.4851 | NullXLeakMax=0.0000 | F1_open=0.5656 | MAE_open=0.1467 | MAE_EnergyCP=1.1574 | LR=8.0e-05
+2026-03-30 16:47:52,518 | INFO | [Epoch 32] Val - loss=0.1338 | BackgroundLeakMean=0.0130 | BackgroundLeakP99=0.5684 | NullXLeakMax=0.0000 | F1_open=0.3424 | MAE_open=0.1819 | MAE_EnergyCP=1.3052 | DenomMin=0.0000 | SeamScore=0.5409 | LR=8.0e-05
+2026-03-30 16:48:16,290 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 16:48:16,291 | INFO | New best model! Val loss: 0.133820
+2026-03-30 16:48:28,542 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 16:59:53,789 | INFO | [Epoch 33] Train - loss=0.1056 | BackgroundLeakMean=0.0061 | BackgroundLeakP99=0.4850 | NullXLeakMax=0.0000 | F1_open=0.5438 | MAE_open=0.1462 | MAE_EnergyCP=1.1435 | LR=8.0e-05
+2026-03-30 17:00:33,793 | INFO | [Epoch 33] Val - loss=0.1326 | BackgroundLeakMean=0.0127 | BackgroundLeakP99=0.5723 | NullXLeakMax=0.0000 | F1_open=0.3424 | MAE_open=0.1803 | MAE_EnergyCP=1.2874 | DenomMin=0.0000 | SeamScore=0.5513 | LR=8.0e-05
+2026-03-30 17:01:01,218 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 17:01:01,219 | INFO | New best model! Val loss: 0.132615
+2026-03-30 17:01:15,414 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 17:12:20,089 | INFO | [Epoch 34] Train - loss=0.1056 | BackgroundLeakMean=0.0059 | BackgroundLeakP99=0.4740 | NullXLeakMax=0.0000 | F1_open=0.5435 | MAE_open=0.1463 | MAE_EnergyCP=1.1639 | LR=8.0e-05
+2026-03-30 17:12:49,676 | INFO | [Epoch 34] Val - loss=0.1314 | BackgroundLeakMean=0.0124 | BackgroundLeakP99=0.5757 | NullXLeakMax=0.0000 | F1_open=0.3425 | MAE_open=0.1791 | MAE_EnergyCP=1.2750 | DenomMin=0.0000 | SeamScore=0.5602 | LR=8.0e-05
+2026-03-30 17:13:16,012 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 17:13:16,013 | INFO | New best model! Val loss: 0.131400
+2026-03-30 17:13:30,162 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 17:25:08,523 | INFO | [Epoch 35] Train - loss=0.1044 | BackgroundLeakMean=0.0058 | BackgroundLeakP99=0.4673 | NullXLeakMax=0.0000 | F1_open=0.5484 | MAE_open=0.1460 | MAE_EnergyCP=1.1723 | LR=8.0e-05
+2026-03-30 17:25:39,810 | INFO | [Epoch 35] Val - loss=0.1300 | BackgroundLeakMean=0.0117 | BackgroundLeakP99=0.5757 | NullXLeakMax=0.0000 | F1_open=0.3428 | MAE_open=0.1783 | MAE_EnergyCP=1.2768 | DenomMin=0.0000 | SeamScore=0.5672 | LR=8.0e-05
+2026-03-30 17:26:05,399 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 17:26:05,400 | INFO | New best model! Val loss: 0.130049
+2026-03-30 17:26:17,878 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 17:36:45,959 | INFO | [Epoch 36] Train - loss=0.1033 | BackgroundLeakMean=0.0057 | BackgroundLeakP99=0.4709 | NullXLeakMax=0.0000 | F1_open=0.5432 | MAE_open=0.1434 | MAE_EnergyCP=1.1164 | LR=8.0e-05
+2026-03-30 17:37:15,600 | INFO | [Epoch 36] Val - loss=0.1292 | BackgroundLeakMean=0.0115 | BackgroundLeakP99=0.5794 | NullXLeakMax=0.0000 | F1_open=0.3428 | MAE_open=0.1771 | MAE_EnergyCP=1.2650 | DenomMin=0.0000 | SeamScore=0.5748 | LR=8.0e-05
+2026-03-30 17:37:36,949 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 17:37:36,950 | INFO | New best model! Val loss: 0.129239
+2026-03-30 17:37:46,728 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 17:48:29,901 | INFO | [Epoch 37] Train - loss=0.1035 | BackgroundLeakMean=0.0057 | BackgroundLeakP99=0.4666 | NullXLeakMax=0.0000 | F1_open=0.5493 | MAE_open=0.1433 | MAE_EnergyCP=1.1216 | LR=8.0e-05
+2026-03-30 17:48:58,642 | INFO | [Epoch 37] Val - loss=0.1282 | BackgroundLeakMean=0.0114 | BackgroundLeakP99=0.5816 | NullXLeakMax=0.0000 | F1_open=0.3427 | MAE_open=0.1758 | MAE_EnergyCP=1.2480 | DenomMin=0.0000 | SeamScore=0.5837 | LR=8.0e-05
+2026-03-30 17:49:21,063 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 17:49:21,063 | INFO | New best model! Val loss: 0.128231
+2026-03-30 17:49:29,958 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 17:58:58,087 | INFO | [Epoch 38] Train - loss=0.1014 | BackgroundLeakMean=0.0056 | BackgroundLeakP99=0.4613 | NullXLeakMax=0.0000 | F1_open=0.5396 | MAE_open=0.1406 | MAE_EnergyCP=1.0829 | LR=8.0e-05
+2026-03-30 17:59:21,725 | INFO | [Epoch 38] Val - loss=0.1274 | BackgroundLeakMean=0.0111 | BackgroundLeakP99=0.5833 | NullXLeakMax=0.0000 | F1_open=0.3427 | MAE_open=0.1749 | MAE_EnergyCP=1.2422 | DenomMin=0.0000 | SeamScore=0.5904 | LR=8.0e-05
+2026-03-30 17:59:29,764 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 17:59:29,765 | INFO | New best model! Val loss: 0.127441
+2026-03-30 17:59:33,763 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 18:09:04,281 | INFO | [Epoch 39] Train - loss=0.1025 | BackgroundLeakMean=0.0058 | BackgroundLeakP99=0.4654 | NullXLeakMax=0.0000 | F1_open=0.5484 | MAE_open=0.1420 | MAE_EnergyCP=1.0989 | LR=8.0e-05
+2026-03-30 18:09:32,336 | INFO | [Epoch 39] Val - loss=0.1267 | BackgroundLeakMean=0.0110 | BackgroundLeakP99=0.5841 | NullXLeakMax=0.0000 | F1_open=0.3426 | MAE_open=0.1740 | MAE_EnergyCP=1.2348 | DenomMin=0.0000 | SeamScore=0.5987 | LR=8.0e-05
+2026-03-30 18:09:40,960 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 18:09:40,961 | INFO | New best model! Val loss: 0.126662
+2026-03-30 18:09:43,242 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 18:19:14,793 | INFO | [Epoch 40] Train - loss=0.1005 | BackgroundLeakMean=0.0055 | BackgroundLeakP99=0.4538 | NullXLeakMax=0.0000 | F1_open=0.5560 | MAE_open=0.1401 | MAE_EnergyCP=1.0695 | LR=8.0e-05
+2026-03-30 18:19:38,600 | INFO | [Epoch 40] Val - loss=0.1259 | BackgroundLeakMean=0.0108 | BackgroundLeakP99=0.5872 | NullXLeakMax=0.0000 | F1_open=0.3428 | MAE_open=0.1733 | MAE_EnergyCP=1.2304 | DenomMin=0.0000 | SeamScore=0.6058 | LR=8.0e-05
+2026-03-30 18:19:46,466 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 18:19:46,466 | INFO | New best model! Val loss: 0.125914
+2026-03-30 18:19:49,176 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 18:29:20,265 | INFO | [Epoch 41] Train - loss=0.1004 | BackgroundLeakMean=0.0054 | BackgroundLeakP99=0.4496 | NullXLeakMax=0.0000 | F1_open=0.5585 | MAE_open=0.1396 | MAE_EnergyCP=1.0670 | LR=8.0e-05
+2026-03-30 18:29:46,631 | INFO | [Epoch 41] Val - loss=0.1252 | BackgroundLeakMean=0.0106 | BackgroundLeakP99=0.5886 | NullXLeakMax=0.0000 | F1_open=0.3427 | MAE_open=0.1725 | MAE_EnergyCP=1.2230 | DenomMin=0.0000 | SeamScore=0.6114 | LR=8.0e-05
+2026-03-30 18:29:55,403 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 18:29:55,404 | INFO | New best model! Val loss: 0.125208
+2026-03-30 18:29:57,806 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 18:39:31,420 | INFO | [Epoch 42] Train - loss=0.1000 | BackgroundLeakMean=0.0055 | BackgroundLeakP99=0.4496 | NullXLeakMax=0.0000 | F1_open=0.5570 | MAE_open=0.1389 | MAE_EnergyCP=1.0625 | LR=8.0e-05
+2026-03-30 18:39:55,247 | INFO | [Epoch 42] Val - loss=0.1247 | BackgroundLeakMean=0.0106 | BackgroundLeakP99=0.5910 | NullXLeakMax=0.0000 | F1_open=0.3424 | MAE_open=0.1717 | MAE_EnergyCP=1.2141 | DenomMin=0.0000 | SeamScore=0.6178 | LR=8.0e-05
+2026-03-30 18:40:05,958 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 18:40:05,959 | INFO | New best model! Val loss: 0.124699
+2026-03-30 18:40:11,505 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 18:49:45,422 | INFO | [Epoch 43] Train - loss=0.0994 | BackgroundLeakMean=0.0053 | BackgroundLeakP99=0.4479 | NullXLeakMax=0.0000 | F1_open=0.5540 | MAE_open=0.1381 | MAE_EnergyCP=1.0546 | LR=8.0e-05
+2026-03-30 18:50:11,316 | INFO | [Epoch 43] Val - loss=0.1241 | BackgroundLeakMean=0.0104 | BackgroundLeakP99=0.5915 | NullXLeakMax=0.0000 | F1_open=0.3424 | MAE_open=0.1711 | MAE_EnergyCP=1.2114 | DenomMin=0.0000 | SeamScore=0.6244 | LR=8.0e-05
+2026-03-30 18:50:19,620 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 18:50:19,621 | INFO | New best model! Val loss: 0.124148
+2026-03-30 18:50:24,287 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 18:59:55,818 | INFO | [Epoch 44] Train - loss=0.0987 | BackgroundLeakMean=0.0053 | BackgroundLeakP99=0.4375 | NullXLeakMax=0.0000 | F1_open=0.5606 | MAE_open=0.1372 | MAE_EnergyCP=1.0572 | LR=8.0e-05
+2026-03-30 19:00:19,816 | INFO | [Epoch 44] Val - loss=0.1231 | BackgroundLeakMean=0.0099 | BackgroundLeakP99=0.5928 | NullXLeakMax=0.0000 | F1_open=0.3434 | MAE_open=0.1704 | MAE_EnergyCP=1.2099 | DenomMin=0.0000 | SeamScore=0.6310 | LR=8.0e-05
+2026-03-30 19:00:29,080 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 19:00:29,081 | INFO | New best model! Val loss: 0.123140
+2026-03-30 19:00:30,995 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 19:10:02,451 | INFO | [Epoch 45] Train - loss=0.0981 | BackgroundLeakMean=0.0053 | BackgroundLeakP99=0.4429 | NullXLeakMax=0.0000 | F1_open=0.5536 | MAE_open=0.1362 | MAE_EnergyCP=1.0390 | LR=8.0e-05
+2026-03-30 19:10:26,848 | INFO | [Epoch 45] Val - loss=0.1228 | BackgroundLeakMean=0.0099 | BackgroundLeakP99=0.5952 | NullXLeakMax=0.0000 | F1_open=0.3429 | MAE_open=0.1696 | MAE_EnergyCP=1.1992 | DenomMin=0.0000 | SeamScore=0.6375 | LR=8.0e-05
+2026-03-30 19:10:35,288 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 19:10:35,289 | INFO | New best model! Val loss: 0.122808
+2026-03-30 19:10:37,532 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 19:20:10,159 | INFO | [Epoch 46] Train - loss=0.0978 | BackgroundLeakMean=0.0054 | BackgroundLeakP99=0.4373 | NullXLeakMax=0.0000 | F1_open=0.5688 | MAE_open=0.1352 | MAE_EnergyCP=1.0304 | LR=8.0e-05
+2026-03-30 19:20:34,856 | INFO | [Epoch 46] Val - loss=0.1223 | BackgroundLeakMean=0.0098 | BackgroundLeakP99=0.5970 | NullXLeakMax=0.0000 | F1_open=0.3433 | MAE_open=0.1689 | MAE_EnergyCP=1.1905 | DenomMin=0.0000 | SeamScore=0.6434 | LR=8.0e-05
+2026-03-30 19:20:42,007 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 19:20:42,008 | INFO | New best model! Val loss: 0.122299
+2026-03-30 19:20:43,305 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 19:30:18,675 | INFO | [Epoch 47] Train - loss=0.0965 | BackgroundLeakMean=0.0052 | BackgroundLeakP99=0.4280 | NullXLeakMax=0.0000 | F1_open=0.5523 | MAE_open=0.1345 | MAE_EnergyCP=1.0148 | LR=8.0e-05
+2026-03-30 19:30:45,419 | INFO | [Epoch 47] Val - loss=0.1219 | BackgroundLeakMean=0.0097 | BackgroundLeakP99=0.5975 | NullXLeakMax=0.0000 | F1_open=0.3431 | MAE_open=0.1686 | MAE_EnergyCP=1.1911 | DenomMin=0.0000 | SeamScore=0.6488 | LR=8.0e-05
+2026-03-30 19:30:55,734 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 19:30:55,735 | INFO | New best model! Val loss: 0.121873
+2026-03-30 19:30:57,370 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 19:40:29,830 | INFO | [Epoch 48] Train - loss=0.0959 | BackgroundLeakMean=0.0051 | BackgroundLeakP99=0.4300 | NullXLeakMax=0.0000 | F1_open=0.5674 | MAE_open=0.1334 | MAE_EnergyCP=0.9987 | LR=8.0e-05
+2026-03-30 19:40:53,668 | INFO | [Epoch 48] Val - loss=0.1216 | BackgroundLeakMean=0.0097 | BackgroundLeakP99=0.5976 | NullXLeakMax=0.0000 | F1_open=0.3427 | MAE_open=0.1680 | MAE_EnergyCP=1.1861 | DenomMin=0.0000 | SeamScore=0.6533 | LR=8.0e-05
+2026-03-30 19:41:04,633 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 19:41:04,634 | INFO | New best model! Val loss: 0.121551
+2026-03-30 19:41:06,250 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 19:50:40,434 | INFO | [Epoch 49] Train - loss=0.0953 | BackgroundLeakMean=0.0050 | BackgroundLeakP99=0.4238 | NullXLeakMax=0.0000 | F1_open=0.5526 | MAE_open=0.1326 | MAE_EnergyCP=0.9873 | LR=8.0e-05
+2026-03-30 19:51:07,809 | INFO | [Epoch 49] Val - loss=0.1212 | BackgroundLeakMean=0.0096 | BackgroundLeakP99=0.5979 | NullXLeakMax=0.0000 | F1_open=0.3424 | MAE_open=0.1676 | MAE_EnergyCP=1.1848 | DenomMin=0.0000 | SeamScore=0.6586 | LR=8.0e-05
+2026-03-30 19:51:15,317 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 19:51:15,317 | INFO | New best model! Val loss: 0.121229
+2026-03-30 19:51:17,606 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 20:00:53,671 | INFO | [Epoch 50] Train - loss=0.0949 | BackgroundLeakMean=0.0049 | BackgroundLeakP99=0.4226 | NullXLeakMax=0.0000 | F1_open=0.5611 | MAE_open=0.1320 | MAE_EnergyCP=0.9779 | LR=8.0e-05
+2026-03-30 20:01:22,696 | INFO | [Epoch 50] Val - loss=0.1209 | BackgroundLeakMean=0.0097 | BackgroundLeakP99=0.6004 | NullXLeakMax=0.0000 | F1_open=0.3421 | MAE_open=0.1672 | MAE_EnergyCP=1.1805 | DenomMin=0.0000 | SeamScore=0.6632 | LR=8.0e-05
+2026-03-30 20:01:27,663 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 20:01:27,663 | INFO | New best model! Val loss: 0.120865
+2026-03-30 20:01:29,657 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 20:11:03,018 | INFO | [Epoch 51] Train - loss=0.0958 | BackgroundLeakMean=0.0050 | BackgroundLeakP99=0.4295 | NullXLeakMax=0.0000 | F1_open=0.5563 | MAE_open=0.1338 | MAE_EnergyCP=1.0077 | LR=8.0e-05
+2026-03-30 20:11:25,328 | INFO | [Epoch 51] Val - loss=0.1206 | BackgroundLeakMean=0.0096 | BackgroundLeakP99=0.6000 | NullXLeakMax=0.0000 | F1_open=0.3419 | MAE_open=0.1668 | MAE_EnergyCP=1.1761 | DenomMin=0.0000 | SeamScore=0.6680 | LR=8.0e-05
+2026-03-30 20:11:33,078 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 20:11:33,079 | INFO | New best model! Val loss: 0.120616
+2026-03-30 20:11:35,309 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 20:21:06,530 | INFO | [Epoch 52] Train - loss=0.0937 | BackgroundLeakMean=0.0049 | BackgroundLeakP99=0.4138 | NullXLeakMax=0.0000 | F1_open=0.5689 | MAE_open=0.1305 | MAE_EnergyCP=0.9736 | LR=8.0e-05
+2026-03-30 20:21:35,889 | INFO | [Epoch 52] Val - loss=0.1204 | BackgroundLeakMean=0.0096 | BackgroundLeakP99=0.6049 | NullXLeakMax=0.0000 | F1_open=0.3421 | MAE_open=0.1661 | MAE_EnergyCP=1.1628 | DenomMin=0.0000 | SeamScore=0.6753 | LR=8.0e-05
+2026-03-30 20:21:44,524 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 20:21:44,524 | INFO | New best model! Val loss: 0.120429
+2026-03-30 20:21:46,868 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 20:31:19,981 | INFO | [Epoch 53] Train - loss=0.0931 | BackgroundLeakMean=0.0048 | BackgroundLeakP99=0.4114 | NullXLeakMax=0.0000 | F1_open=0.5616 | MAE_open=0.1294 | MAE_EnergyCP=0.9585 | LR=8.0e-05
+2026-03-30 20:31:42,195 | INFO | [Epoch 53] Val - loss=0.1201 | BackgroundLeakMean=0.0095 | BackgroundLeakP99=0.6051 | NullXLeakMax=0.0000 | F1_open=0.3422 | MAE_open=0.1660 | MAE_EnergyCP=1.1672 | DenomMin=0.0000 | SeamScore=0.6790 | LR=8.0e-05
+2026-03-30 20:31:58,281 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 20:31:58,282 | INFO | New best model! Val loss: 0.120086
+2026-03-30 20:32:00,395 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 20:41:34,238 | INFO | [Epoch 54] Train - loss=0.0926 | BackgroundLeakMean=0.0048 | BackgroundLeakP99=0.4093 | NullXLeakMax=0.0000 | F1_open=0.5559 | MAE_open=0.1292 | MAE_EnergyCP=0.9564 | LR=8.0e-05
+2026-03-30 20:42:04,051 | INFO | [Epoch 54] Val - loss=0.1198 | BackgroundLeakMean=0.0095 | BackgroundLeakP99=0.6089 | NullXLeakMax=0.0000 | F1_open=0.3417 | MAE_open=0.1655 | MAE_EnergyCP=1.1622 | DenomMin=0.0000 | SeamScore=0.6844 | LR=8.0e-05
+2026-03-30 20:42:12,109 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 20:42:12,110 | INFO | New best model! Val loss: 0.119847
+2026-03-30 20:42:14,070 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 20:51:49,523 | INFO | [Epoch 55] Train - loss=0.0907 | BackgroundLeakMean=0.0046 | BackgroundLeakP99=0.3979 | NullXLeakMax=0.0000 | F1_open=0.5707 | MAE_open=0.1264 | MAE_EnergyCP=0.9212 | LR=8.0e-05
+2026-03-30 20:52:15,280 | INFO | [Epoch 55] Val - loss=0.1193 | BackgroundLeakMean=0.0090 | BackgroundLeakP99=0.6108 | NullXLeakMax=0.0000 | F1_open=0.3436 | MAE_open=0.1652 | MAE_EnergyCP=1.1630 | DenomMin=0.0000 | SeamScore=0.6894 | LR=8.0e-05
+2026-03-30 20:52:24,126 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 20:52:24,127 | INFO | New best model! Val loss: 0.119255
+2026-03-30 20:52:25,609 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 21:01:59,548 | INFO | [Epoch 56] Train - loss=0.0919 | BackgroundLeakMean=0.0046 | BackgroundLeakP99=0.4038 | NullXLeakMax=0.0000 | F1_open=0.5530 | MAE_open=0.1283 | MAE_EnergyCP=0.9618 | LR=8.0e-05
+2026-03-30 21:02:24,307 | INFO | [Epoch 56] Val - loss=0.1190 | BackgroundLeakMean=0.0089 | BackgroundLeakP99=0.6104 | NullXLeakMax=0.0000 | F1_open=0.3439 | MAE_open=0.1651 | MAE_EnergyCP=1.1660 | DenomMin=0.0000 | SeamScore=0.6941 | LR=8.0e-05
+2026-03-30 21:02:33,073 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 21:02:33,074 | INFO | New best model! Val loss: 0.119026
+2026-03-30 21:02:35,471 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 21:12:13,072 | INFO | [Epoch 57] Train - loss=0.0907 | BackgroundLeakMean=0.0045 | BackgroundLeakP99=0.3947 | NullXLeakMax=0.0000 | F1_open=0.5583 | MAE_open=0.1268 | MAE_EnergyCP=0.9394 | LR=8.0e-05
+2026-03-30 21:12:38,718 | INFO | [Epoch 57] Val - loss=0.1189 | BackgroundLeakMean=0.0089 | BackgroundLeakP99=0.6117 | NullXLeakMax=0.0000 | F1_open=0.3431 | MAE_open=0.1649 | MAE_EnergyCP=1.1645 | DenomMin=0.0000 | SeamScore=0.6979 | LR=8.0e-05
+2026-03-30 21:12:50,225 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 21:12:50,226 | INFO | New best model! Val loss: 0.118912
+2026-03-30 21:12:52,125 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 21:22:23,924 | INFO | [Epoch 58] Train - loss=0.0911 | BackgroundLeakMean=0.0046 | BackgroundLeakP99=0.4030 | NullXLeakMax=0.0000 | F1_open=0.5420 | MAE_open=0.1272 | MAE_EnergyCP=0.9435 | LR=8.0e-05
+2026-03-30 21:22:48,530 | INFO | [Epoch 58] Val - loss=0.1187 | BackgroundLeakMean=0.0088 | BackgroundLeakP99=0.6130 | NullXLeakMax=0.0000 | F1_open=0.3444 | MAE_open=0.1647 | MAE_EnergyCP=1.1618 | DenomMin=0.0000 | SeamScore=0.7025 | LR=8.0e-05
+2026-03-30 21:23:00,441 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 21:23:00,441 | INFO | New best model! Val loss: 0.118694
+2026-03-30 21:23:02,132 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 21:32:38,168 | INFO | [Epoch 59] Train - loss=0.0901 | BackgroundLeakMean=0.0046 | BackgroundLeakP99=0.3952 | NullXLeakMax=0.0000 | F1_open=0.5602 | MAE_open=0.1255 | MAE_EnergyCP=0.9192 | LR=8.0e-05
+2026-03-30 21:33:04,073 | INFO | [Epoch 59] Val - loss=0.1186 | BackgroundLeakMean=0.0088 | BackgroundLeakP99=0.6151 | NullXLeakMax=0.0000 | F1_open=0.3437 | MAE_open=0.1644 | MAE_EnergyCP=1.1582 | DenomMin=0.0000 | SeamScore=0.7067 | LR=8.0e-05
+2026-03-30 21:33:11,610 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 21:33:11,611 | INFO | New best model! Val loss: 0.118632
+2026-03-30 21:33:13,293 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 21:42:49,530 | INFO | [Epoch 60] Train - loss=0.0899 | BackgroundLeakMean=0.0045 | BackgroundLeakP99=0.3958 | NullXLeakMax=0.0000 | F1_open=0.5602 | MAE_open=0.1254 | MAE_EnergyCP=0.9211 | LR=8.0e-05
+2026-03-30 21:43:17,007 | INFO | [Epoch 60] Val - loss=0.1184 | BackgroundLeakMean=0.0087 | BackgroundLeakP99=0.6169 | NullXLeakMax=0.0000 | F1_open=0.3442 | MAE_open=0.1642 | MAE_EnergyCP=1.1564 | DenomMin=0.0000 | SeamScore=0.7117 | LR=8.0e-05
+2026-03-30 21:43:27,019 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 21:43:27,019 | INFO | New best model! Val loss: 0.118445
+2026-03-30 21:43:28,684 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 21:53:03,529 | INFO | [Epoch 61] Train - loss=0.0895 | BackgroundLeakMean=0.0046 | BackgroundLeakP99=0.4010 | NullXLeakMax=0.0000 | F1_open=0.5573 | MAE_open=0.1248 | MAE_EnergyCP=0.9052 | LR=8.0e-05
+2026-03-30 21:53:29,629 | INFO | [Epoch 61] Val - loss=0.1183 | BackgroundLeakMean=0.0087 | BackgroundLeakP99=0.6177 | NullXLeakMax=0.0000 | F1_open=0.3439 | MAE_open=0.1641 | MAE_EnergyCP=1.1591 | DenomMin=0.0000 | SeamScore=0.7147 | LR=8.0e-05
+2026-03-30 21:53:38,988 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 21:53:38,989 | INFO | New best model! Val loss: 0.118289
+2026-03-30 21:53:40,979 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 22:03:15,817 | INFO | [Epoch 62] Train - loss=0.0892 | BackgroundLeakMean=0.0045 | BackgroundLeakP99=0.3883 | NullXLeakMax=0.0000 | F1_open=0.5770 | MAE_open=0.1241 | MAE_EnergyCP=0.9211 | LR=8.0e-05
+2026-03-30 22:03:43,068 | INFO | [Epoch 62] Val - loss=0.1183 | BackgroundLeakMean=0.0088 | BackgroundLeakP99=0.6198 | NullXLeakMax=0.0000 | F1_open=0.3434 | MAE_open=0.1639 | MAE_EnergyCP=1.1561 | DenomMin=0.0000 | SeamScore=0.7190 | LR=8.0e-05
+2026-03-30 22:03:45,340 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 22:13:21,893 | INFO | [Epoch 63] Train - loss=0.0889 | BackgroundLeakMean=0.0044 | BackgroundLeakP99=0.3917 | NullXLeakMax=0.0000 | F1_open=0.5454 | MAE_open=0.1243 | MAE_EnergyCP=0.9107 | LR=8.0e-05
+2026-03-30 22:13:47,471 | INFO | [Epoch 63] Val - loss=0.1182 | BackgroundLeakMean=0.0087 | BackgroundLeakP99=0.6208 | NullXLeakMax=0.0000 | F1_open=0.3431 | MAE_open=0.1639 | MAE_EnergyCP=1.1589 | DenomMin=0.0000 | SeamScore=0.7223 | LR=8.0e-05
+2026-03-30 22:13:54,798 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 22:13:54,798 | INFO | New best model! Val loss: 0.118206
+2026-03-30 22:13:57,986 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 22:23:33,886 | INFO | [Epoch 64] Train - loss=0.0886 | BackgroundLeakMean=0.0044 | BackgroundLeakP99=0.3904 | NullXLeakMax=0.0000 | F1_open=0.5581 | MAE_open=0.1235 | MAE_EnergyCP=0.8934 | LR=8.0e-05
+2026-03-30 22:24:00,920 | INFO | [Epoch 64] Val - loss=0.1182 | BackgroundLeakMean=0.0088 | BackgroundLeakP99=0.6230 | NullXLeakMax=0.0000 | F1_open=0.3426 | MAE_open=0.1636 | MAE_EnergyCP=1.1546 | DenomMin=0.0000 | SeamScore=0.7255 | LR=8.0e-05
+2026-03-30 22:24:08,193 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 22:24:08,194 | INFO | New best model! Val loss: 0.118174
+2026-03-30 22:24:10,494 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 22:33:44,757 | INFO | [Epoch 65] Train - loss=0.0868 | BackgroundLeakMean=0.0042 | BackgroundLeakP99=0.3793 | NullXLeakMax=0.0000 | F1_open=0.5517 | MAE_open=0.1212 | MAE_EnergyCP=0.8796 | LR=8.0e-05
+2026-03-30 22:34:11,710 | INFO | [Epoch 65] Val - loss=0.1181 | BackgroundLeakMean=0.0088 | BackgroundLeakP99=0.6237 | NullXLeakMax=0.0000 | F1_open=0.3428 | MAE_open=0.1635 | MAE_EnergyCP=1.1531 | DenomMin=0.0000 | SeamScore=0.7295 | LR=8.0e-05
+2026-03-30 22:34:17,322 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 22:34:17,323 | INFO | New best model! Val loss: 0.118071
+2026-03-30 22:34:18,510 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 22:43:48,588 | INFO | [Epoch 66] Train - loss=0.0880 | BackgroundLeakMean=0.0043 | BackgroundLeakP99=0.3854 | NullXLeakMax=0.0000 | F1_open=0.5439 | MAE_open=0.1229 | MAE_EnergyCP=0.8947 | LR=8.0e-05
+2026-03-30 22:44:16,162 | INFO | [Epoch 66] Val - loss=0.1180 | BackgroundLeakMean=0.0087 | BackgroundLeakP99=0.6270 | NullXLeakMax=0.0000 | F1_open=0.3435 | MAE_open=0.1633 | MAE_EnergyCP=1.1492 | DenomMin=0.0000 | SeamScore=0.7334 | LR=8.0e-05
+2026-03-30 22:44:21,243 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 22:44:21,244 | INFO | New best model! Val loss: 0.118050
+2026-03-30 22:44:23,380 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 22:53:52,292 | INFO | [Epoch 67] Train - loss=0.0864 | BackgroundLeakMean=0.0042 | BackgroundLeakP99=0.3858 | NullXLeakMax=0.0000 | F1_open=0.5569 | MAE_open=0.1208 | MAE_EnergyCP=0.8675 | LR=8.0e-05
+2026-03-30 22:54:18,253 | INFO | [Epoch 67] Val - loss=0.1180 | BackgroundLeakMean=0.0088 | BackgroundLeakP99=0.6267 | NullXLeakMax=0.0000 | F1_open=0.3427 | MAE_open=0.1632 | MAE_EnergyCP=1.1497 | DenomMin=0.0000 | SeamScore=0.7370 | LR=8.0e-05
+2026-03-30 22:54:28,017 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 22:54:28,017 | INFO | New best model! Val loss: 0.117977
+2026-03-30 22:54:30,602 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 23:04:01,322 | INFO | [Epoch 68] Train - loss=0.0866 | BackgroundLeakMean=0.0042 | BackgroundLeakP99=0.3740 | NullXLeakMax=0.0000 | F1_open=0.5555 | MAE_open=0.1206 | MAE_EnergyCP=0.8754 | LR=8.0e-05
+2026-03-30 23:04:30,264 | INFO | [Epoch 68] Val - loss=0.1176 | BackgroundLeakMean=0.0083 | BackgroundLeakP99=0.6299 | NullXLeakMax=0.0000 | F1_open=0.3530 | MAE_open=0.1632 | MAE_EnergyCP=1.1501 | DenomMin=0.0000 | SeamScore=0.7421 | LR=8.0e-05
+2026-03-30 23:04:38,425 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 23:04:38,426 | INFO | New best model! Val loss: 0.117645
+2026-03-30 23:04:40,619 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 23:14:10,983 | INFO | [Epoch 69] Train - loss=0.0857 | BackgroundLeakMean=0.0042 | BackgroundLeakP99=0.3766 | NullXLeakMax=0.0000 | F1_open=0.5378 | MAE_open=0.1200 | MAE_EnergyCP=0.8594 | LR=8.0e-05
+2026-03-30 23:14:37,551 | INFO | [Epoch 69] Val - loss=0.1176 | BackgroundLeakMean=0.0083 | BackgroundLeakP99=0.6286 | NullXLeakMax=0.0000 | F1_open=0.3488 | MAE_open=0.1632 | MAE_EnergyCP=1.1551 | DenomMin=0.0000 | SeamScore=0.7439 | LR=8.0e-05
+2026-03-30 23:14:49,171 | INFO | Checkpoints saved: latest=latest.pth, best=best.pth
+2026-03-30 23:14:49,172 | INFO | New best model! Val loss: 0.117582
+2026-03-30 23:14:51,201 | INFO | Checkpoint saved: latest=latest.pth
+2026-03-30 23:14:51,223 | INFO | Training completed!
