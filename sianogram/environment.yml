@@ -1,0 +1,70 @@
+name: Sinogramme
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+description: "Deep Learning for Radiotherapy Sinogram Prediction (Tomotherapy/Radixact)"
+
+dependencies:
+  # --- Python ---
+  - python=3.10
+
+  # --- Core Scientific ---
+  - numpy>=1.21,<2.0
+  - scipy>=1.7,<2.0
+  - matplotlib>=3.5,<4.0
+  - pandas>=2.0,<3.0
+  - scikit-learn>=1.4,<2.0
+  - scikit-image>=0.22,<1.0
+
+  # --- PyTorch & CUDA (Channel: pytorch) ---
+  - pytorch::pytorch::2.5.1=py3.10_cuda12.1_cudnn9.1.0_0
+  - pytorch::pytorch-cuda::12.1
+  - pytorch::pytorch-mutex
+  - pytorch::torchvision::0.22.1
+
+  # --- Development & Utilities ---
+  - pip
+  - pyyaml
+  - h5py
+  - jupyter
+  - ipython
+
+  # --- GPU Support (optionnel) ---
+  - conda-forge::cuda-python=11.8
+  - conda-forge::cupy=13.5.1
+  - conda-forge::fastrlock
+
+pip:
+  # --- PyTorch Extensions ---
+  - torchmetrics>=1.8.0
+  - pytorch-msssim>=1.0.0
+  - kornia>=0.7.0
+
+  # --- Training & Logging ---
+  - tensorboard>=2.15.0
+  - tensorboard-data-server>=0.7.0
+  - tqdm>=4.67.0
+
+  # --- Medical Imaging ---
+  - pydicom>=2.3,<4.0
+  - SimpleITK>=2.2,<3.0
+  - nibabel>=5.0,<6.0
+  - pydicer>=0.2.0
+
+  # --- GPU Computing (optionnel) ---
+  # - cupy-cuda12x>=13.0,<14.0
+  # - pycuda>=2025.1
+
+# ============================================================
+# Installation:
+#   conda env create -f environment.yml
+#   conda activate Sinogramme
+#
+# Update:
+#   conda env update -f environment.yml --prune
+#
+# Deactivate:
+#   conda deactivate
+# ============================================================
+

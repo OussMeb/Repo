@@ -1,0 +1,25 @@
+# ============================================
+# Sianogram - Root scripts requirements (excludes preprocessing/)
+# ============================================
+# Scope: *.py files at repository root only.
+# Excluded on purpose: preprocessing/, ptv_mapping/, legacy/, etc.
+# ============================================
+
+# Core numerical + plotting
+numpy>=1.21,<2.0
+matplotlib>=3.5,<4.0
+
+# Training stack
+torchmetrics>=1.8.0
+tqdm>=4.67.0
+pyyaml>=6.0
+
+# Optional/auxiliary components used by root scripts
+kornia>=0.7.0
+pydicom>=2.4.0
+pytorch-msssim>=1.0.0
+tensorboard>=2.15.0
+
+--index-url https://download.pytorch.org/whl/cu121
+torch==2.7.1
+torchvision==0.22.1
