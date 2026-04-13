@@ -1,0 +1,17 @@
+# ============================================================================
+# PHASE 3 — L5 : lambda_high = 3.0 (fortes intensités plus poussées)
+# ============================================================================
+# Renforce l'erreur sur les hautes intensités (pics d'ouverture feuilles).
+# Tester si MAE_EnergyCP et MAE_open s'améliorent sans dégrader le fond.
+# ============================================================================
+
+loss:
+  name: GranularSinoLoss
+  params:
+    lambda_fp: 5.0
+    lambda_grad: 1.0
+    lambda_high: 3.0     # ↑ baseline=2.0
+    gamma_high: 2.0
+    tau_low: 1.0e-4
+    apply_sigmoid: false
+

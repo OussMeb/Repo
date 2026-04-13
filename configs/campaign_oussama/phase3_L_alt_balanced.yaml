@@ -1,0 +1,21 @@
+# ============================================================================
+# PHASE 3 — L_ALT : Alternative BalancedLogSpectralLoss
+# ============================================================================
+# ⚠ DERNIER RECOURS : tester seulement si GranularSinoLoss reste frustrante
+# après les essais L1→L5.
+#
+# BalancedLogSpectralLoss impose apply_sigmoid=true par défaut (sortie bornée).
+# Travaille en log-domain pour équilibrer bas/haut signal.
+# ============================================================================
+
+loss:
+  name: BalancedLogSpectralLoss
+  params:
+    lam_pix: 1.0
+    lam_grad: 0.15
+    lam_spec: 0.25
+    k_log: 20.0
+    w_min: 0.20
+    p_w: 0.35
+    apply_sigmoid: true
+

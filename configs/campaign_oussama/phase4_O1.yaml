@@ -1,0 +1,10 @@
+# ============================================================================
+# PHASE 4 — O1 : Learning rate baseline (référence pour la phase 4)
+# ============================================================================
+# LR = 8e-5  →  valeur actuelle dans run_halo_patch_baseline.yaml
+# Ce fichier est la "non-modification" explicite pour le tableau de runs.
+# ============================================================================
+
+training:
+  learning_rate: 8.0e-5
+

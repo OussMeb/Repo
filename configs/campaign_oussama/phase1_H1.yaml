@@ -1,0 +1,20 @@
+# ============================================================================
+# PHASE 1 — H1 : Contexte petit
+# ============================================================================
+# patch_in_cp  = 512  (backbone voit 512 CP)
+# patch_out_cp = 384  (zone supervisée/restituée)
+# halo_cp      = 64   (contexte de part et d'autre)
+#
+# Vérification : 512 = 384 + 2*64 ✓
+# Mémoire      : patch plus petit → batch_size=6, accum=2 identique au base
+# ============================================================================
+
+data:
+  patch_in_cp: 512
+  patch_cp: 512        # alias legacy — doit rester cohérent avec patch_in_cp
+  patch_out_cp: 384
+  halo_cp: 64
+
+model:
+  use_patch_cp_head: false
+

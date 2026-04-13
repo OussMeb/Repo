@@ -1,0 +1,93 @@
+device: cuda
+run_root: runs
+resume: false
+checkpoint_path: null
+
+data:
+  path: /mnt/LeGrosDisque/Julien/sianogramme/JUJU
+  split_json: /mnt/LeGrosDisque/Julien/sianogramme/JUJU/split_manifest.json
+  ratio: 0.9
+  random_seed: 44
+  batch_size: 12
+  num_workers: 2
+  W_in: 64
+  W: 64
+  cp_height_px: 12
+  patch_cp: 1024
+  jitter_cp: 64
+  augment: true
+  split_in_two: false
+
+model:
+  model_name: unet
+  in_ch_drr: 16
+  out_ch: 1
+  base_ch: 96
+  depth: 4
+  num_groups: 8
+  use_sincos_angles: true
+  film_hidden: 512
+  film_extra_dim: 7
+  use_film_all_levels: true
+  film_on_decoder: true
+  use_resblocks: true
+  res_dropout: 0.05
+  bneck_dilated_blocks: 1
+  bneck_dropout: 0.10
+  bneck_horiz_blocks: 1
+  bneck_horiz_k: 11
+  bneck_horiz_dropout: 0.10
+  use_transformer: false
+  d_model: 256
+  nhead: 8
+  mlp_ratio: 4.0
+  transformer_layers: 4
+  use_ckpt: false
+  pool_w_levels: 0
+  pool_w_factor: 2
+  shape_debug: false
+
+training:
+  n_epochs: 200
+  learning_rate: 8.0e-5
+  weight_decay: 1.0e-5
+  accum_steps: 4
+  use_amp: true
+  amp_dtype: bf16
+  clip_grad_norm: 0.5
+  scheduler_patience: 5
+  scheduler_factor: 0.5
+  scheduler_min_lr: 1.0e-7
+  scheduler_threshold: 1.0e-4
+  scheduler_cooldown: 2
+  use_ema: true
+  ema_decay: 0.9995
+  save_epoch_freq: 5
+  validation_freq: 1
+  save_best: true
+  best_metric: val_loss
+  visual_epoch_train: 1
+  visual_epoch_val: 1
+  visual_batch_train: 50
+  visual_batch_val: 5
+  dose_min_gy: 49.0
+  dose_max_gy: 70.0
+  cp_dur_min_sec: 0.285
+  cp_dur_max_sec: 0.43
+  film_with_presence: true
+  log_extra_metrics: true
+  wmae_alpha: 0.5
+
+loss:
+  name: SparseSinoLoss
+  params:
+    thr: 0.02
+    w_pos: 1.0
+    w_neg: 8.0
+    neg_power: 2.0
+    neg_margin: 0.0
+    huber_beta: 0.05
+    use_sigmoid: true
+    ramp_epochs: 10
+    ramp_power: 0.5
+

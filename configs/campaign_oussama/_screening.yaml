@@ -1,0 +1,19 @@
+# ============================================================================
+# _SCREENING — Durée courte (~1/3 du run complet) + visuels minimaux
+# ============================================================================
+# But : éliminer les mauvaises idées vite, voir la tendance.
+# Pas de convergence complète attendue.
+#
+# Visualisation réduite pour limiter l'overhead I/O :
+#   - 1 snapshot visuel tous les 10 epochs (7 fois sur 70)
+#   - 1 batch visualisé par epoch (idx % 999 → uniquement idx=0)
+# ============================================================================
+
+training:
+  n_epochs: 70
+
+  # Visualisation — minimal pour le screening
+  visual_epoch_train: 10    # snapshot toutes les 10 epochs en train
+  visual_epoch_val: 5       # snapshot toutes les 5 epochs en val (plus utile)
+  visual_batch_train: 999   # un seul batch par epoch (idx=0 uniquement)
+  visual_batch_val: 999     # un seul batch par epoch (idx=0 uniquement)

@@ -1,0 +1,13 @@
+loss:
+  name: SparseSinoLoss
+  params:
+    thr: 0.02
+    w_pos: 1.0
+    w_neg: 8.0
+    neg_power: 2.0
+    neg_margin: 0.0
+    huber_beta: 0.05
+    use_sigmoid: true
+    ramp_epochs: 10
+    ramp_power: 0.5
+

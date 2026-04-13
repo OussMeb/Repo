@@ -1,0 +1,8 @@
+# Quick test config - 1 epoch only for validation
+# Usage: python train.py --config configs/base.yaml --override configs/quicktest.yaml --run_name quicktest
+
+training:
+  n_epochs: 1              # Single epoch only
+  visual_batch_train: 1    # Visualize every batch
+  visual_batch_val: 1      # Visualize every val batch
+

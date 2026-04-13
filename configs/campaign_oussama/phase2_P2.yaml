@@ -1,0 +1,18 @@
+# ============================================================================
+# PHASE 2 — P2 : Tête locale plus petite
+# ============================================================================
+# hidden=64, layers=2  → version la plus légère
+#
+# Si P1 gagne sur P0, tester P2 et P3 pour trouver la version minimale
+# qui conserve le gain. Préférer la plus petite si les métriques sont proches.
+# ============================================================================
+
+model:
+  use_patch_cp_head: true
+  patch_cp_head_hidden: 64
+  patch_cp_head_layers: 2
+  patch_cp_head_kernel_size: 5
+  patch_cp_head_dilations: [1, 2, 4]
+  patch_cp_head_dropout: 0.05
+  patch_cp_head_alpha_init: 0.0
+

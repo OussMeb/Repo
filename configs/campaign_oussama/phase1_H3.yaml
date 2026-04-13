@@ -1,0 +1,22 @@
+# ============================================================================
+# PHASE 1 — H3 : Baseline recommandé (point zéro de la campagne)
+# ============================================================================
+# patch_in_cp  = 768  (backbone voit 768 CP)
+# patch_out_cp = 512  (zone supervisée/restituée)
+# halo_cp      = 128  (contexte de part et d'autre)
+#
+# Vérification : 768 = 512 + 2*128 ✓
+# Mémoire      : identique à run_halo_patch_baseline.yaml (batch=6, accum=2)
+# Note         : c'est la config déjà validée techniquement.
+#                Sert de point de référence pour juger H1, H2 et H4.
+# ============================================================================
+
+data:
+  patch_in_cp: 768
+  patch_cp: 768        # alias legacy — doit rester cohérent avec patch_in_cp
+  patch_out_cp: 512
+  halo_cp: 128
+
+model:
+  use_patch_cp_head: false
+

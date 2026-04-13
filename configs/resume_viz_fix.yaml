@@ -1,0 +1,5 @@
+# Fix visualization frequency when resuming from old checkpoints that had visual_epoch_val: 50
+training:
+  visual_epoch_train: 1
+  visual_epoch_val: 1
+

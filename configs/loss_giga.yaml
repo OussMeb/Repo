@@ -1,0 +1,18 @@
+loss:
+  name: GigaUltimateLoss
+  params:
+    w_l1: 1.0
+    use_weighted_l1: true
+    nonzero_thr: 0.02
+    nonzero_weight: 6.0
+    intensity_weight: 0.0
+    intensity_power: 1.0
+    w_grad_w: 0.10
+    w_grad_cp: 0.10
+    w_fluence_cp: 0.05
+    w_leaf_fluence: 0.05
+    w_ffl_x: 0.00
+    w_ffl2d: 0.03
+    ffl_p: 2.0
+    ramp_epochs: 10
+

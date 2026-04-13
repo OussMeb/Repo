@@ -1,0 +1,18 @@
+# ============================================================================
+# PHASE 3 — L1 : Loss baseline (référence pour la phase 3)
+# ============================================================================
+# GranularSinoLoss avec tous les paramètres par défaut de la campagne.
+# Ce fichier est la "non-modification" — identique à _base_campaign.yaml.
+# Sert de point de repère explicite dans le tableau de runs.
+# ============================================================================
+
+loss:
+  name: GranularSinoLoss
+  params:
+    lambda_fp: 5.0
+    lambda_grad: 1.0
+    lambda_high: 2.0
+    gamma_high: 2.0
+    tau_low: 1.0e-4
+    apply_sigmoid: false
+

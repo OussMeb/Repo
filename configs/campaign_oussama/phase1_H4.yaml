@@ -1,0 +1,27 @@
+# ============================================================================
+# PHASE 1 — H4 : Contexte plus grand
+# ============================================================================
+# patch_in_cp  = 1024  (backbone voit 1024 CP)
+# patch_out_cp = 768   (zone supervisée/restituée)
+# halo_cp      = 128   (contexte identique au baseline H3)
+#
+# Vérification : 1024 = 768 + 2*128 ✓
+#
+# ⚠ ATTENTION MÉMOIRE : patch_in=1024 est ~78% plus large qu'H3 (768).
+#   batch_size réduit de 6 à 4, accum_steps augmenté à 3.
+#   → effective batch size = 4 * 3 = 12  (identique aux autres runs H1/H2/H3)
+# ============================================================================
+
+data:
+  patch_in_cp: 1024
+  patch_cp: 1024       # alias legacy — doit rester cohérent avec patch_in_cp
+  patch_out_cp: 768
+  halo_cp: 128
+  batch_size: 4        # réduit pour éviter OOM (patch ~78% plus grand que H3)
+
+model:
+  use_patch_cp_head: false
+
+training:
+  accum_steps: 3       # 4 * 3 = 12 effective batch size (identique aux autres)
+

@@ -1,0 +1,17 @@
+# ============================================================================
+# PHASE 2 — P3 : Tête locale version intermédiaire
+# ============================================================================
+# hidden=128, layers=2  → même capacité de filtres que P1, mais moins de couches
+#
+# Si P2 est insuffisant mais P1 est trop coûteux, P3 offre un compromis.
+# ============================================================================
+
+model:
+  use_patch_cp_head: true
+  patch_cp_head_hidden: 128
+  patch_cp_head_layers: 2
+  patch_cp_head_kernel_size: 5
+  patch_cp_head_dilations: [1, 2, 4]
+  patch_cp_head_dropout: 0.05
+  patch_cp_head_alpha_init: 0.0
+

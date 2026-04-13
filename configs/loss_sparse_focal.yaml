@@ -1,0 +1,20 @@
+loss:
+  name: SparseFocalSpectralLoss
+  params:
+    thr: 0.02
+    apply_sigmoid: true
+    w_active: 6.0
+    w_bg: 0.2
+    intensity_gamma: 2.0
+    w_fp: 4.0
+    fp_margin: 0.0
+    w_mask: 1.0
+    mask_tau: 0.02
+    mask_k: 40.0
+    focal_gamma: 2.0
+    w_grad_cp: 0.2
+    w_grad_w: 0.2
+    w_fft: 0.05
+    ramp_epochs: 10
+    ramp_power: 0.5
+

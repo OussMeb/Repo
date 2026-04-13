@@ -1,0 +1,132 @@
+# ============================================================================
+# CONFIGURATION: Depth Améliorée (depth=5)
+# ============================================================================
+# Pour améliorer la profondeur du réseau sans augmenter démesurément la mémoire
+# Base: configs/base.yaml
+# Modifications: +1 niveau de profondeur, bottleneck renforcé, FiLM sur décodeur
+# ============================================================================
+
+data:
+  path: /mnt/LeGrosDisque/Julien/sianogramme/JUJU
+  split_json: /mnt/LeGrosDisque/Julien/sianogramme/JUJU/split_manifest.json
+  ratio: 0.9
+  random_seed: 44
+  batch_size: 7              # Réduit de 14 à 7 pour depth=5
+  num_workers: 3
+  W_in: 64
+  W: 64
+  augment: true
+  cp_height_px: 12
+  patch_cp: 512
+  jitter_cp: 64
+
+# ============================================================================
+# MODEL ARCHITECTURE - PROFONDEUR AMÉLIORÉE
+# ============================================================================
+model:
+  model_name: unet
+
+  in_ch_drr: 16
+  out_ch: 1
+
+  # Architecture
+  base_ch: 128      # Garder stable
+  depth: 5          # +1 niveau de profondeur (amélioration clé)
+  num_groups: 8
+
+  # FiLM (Feature-wise Linear Modulation)
+  film_extra_dim: 7
+  use_sincos_angles: true
+  film_hidden: 512
+  use_film_all_levels: true
+  film_on_decoder: true  # IMPORTANT: Appliquer FiLM aussi au décodeur
+
+  # Blocs résiduels
+  use_resblocks: true
+  res_dropout: 0.05
+
+  # Bottleneck renforcé
+  bneck_dilated_blocks: 2     # Augmenté de 1 à 2
+  bneck_dropout: 0.08         # Légèrement augmenté pour régularisation
+  bneck_horiz_blocks: 2       # Augmenté de 1 à 2
+  bneck_horiz_k: 13           # Kernel plus grand pour capturer patterns
+  bneck_horiz_dropout: 0.08   # Cohérent avec dilated
+
+  # Transformer (optionnel - désactivé pour contrôler mémoire)
+  use_transformer: false
+  d_model: 256
+  nhead: 8
+  mlp_ratio: 4.0
+  transformer_layers: 4
+
+  # Optimisations
+  use_ckpt: true
+  pool_w_levels: 1           # Pool une fois en W pour augmenter réceptive field
+  pool_w_factor: 2
+  shape_debug: false
+
+# ============================================================================
+# TRAINING CONFIGURATION - AJUSTÉ POUR PROFONDEUR ACCRUE
+# ============================================================================
+training:
+  # Paramètres de base
+  n_epochs: 200
+  learning_rate: 6.0e-5        # Légèrement réduit pour profondeur accrue
+  weight_decay: 1.2e-5         # Augmenté légèrement pour régularisation
+  accum_steps: 8               # Augmenté de 4 à 8 pour compenser batch_size réduit
+
+  # Mixed Precision Training
+  use_amp: true
+  amp_dtype: bf16
+
+  # Gradient Clipping
+  clip_grad_norm: 0.5
+
+  # Learning Rate Scheduler
+  scheduler_patience: 5
+  scheduler_factor: 0.5
+  scheduler_min_lr: 1.0e-7
+  scheduler_threshold: 1.0e-4
+  scheduler_cooldown: 2
+
+  # Exponential Moving Average
+  use_ema: true
+  ema_decay: 0.9995
+
+  # Sauvegarde et évaluation
+  save_epoch_freq: 5
+  validation_freq: 1
+  save_best: true
+  best_metric: val_loss
+
+  # Visualisation
+  visual_epoch_train: 1
+  visual_epoch_val: 1
+  visual_batch_train: 10
+  visual_batch_val: 5
+
+  # Normalisation
+  dose_min_gy: 49.0
+  dose_max_gy: 70.0
+  cp_dur_min_sec: 0.285
+  cp_dur_max_sec: 0.43
+
+  # Métriques
+  film_with_presence: true
+  log_extra_metrics: true
+  wmae_alpha: 0.5
+
+# ============================================================================
+# LOSS FUNCTION
+# ============================================================================
+loss:
+  name: MSELoss
+
+# ============================================================================
+# GENERAL CONFIGURATION
+# ============================================================================
+run_root: runs
+device: cuda
+resume: false
+checkpoint_path: null
+

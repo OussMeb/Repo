@@ -1,0 +1,17 @@
+# ============================================================================
+# PHASE 3 — L4 : lambda_grad = 2.0 (structure inter-lames renforcée)
+# ============================================================================
+# Poids doublé sur l'alignement des gradients (transitions entre lames).
+# Tester si SeamScore et la continuité du sinogramme s'améliorent.
+# ============================================================================
+
+loss:
+  name: GranularSinoLoss
+  params:
+    lambda_fp: 5.0
+    lambda_grad: 2.0     # ↑ baseline=1.0
+    lambda_high: 2.0
+    gamma_high: 2.0
+    tau_low: 1.0e-4
+    apply_sigmoid: false
+

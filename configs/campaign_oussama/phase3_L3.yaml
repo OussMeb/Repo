@@ -1,0 +1,17 @@
+# ============================================================================
+# PHASE 3 — L3 : lambda_fp = 8.0 (pression accrue contre le fond)
+# ============================================================================
+# Penalise plus fortement les faux positifs sur les zones de fond (t ≈ 0).
+# Tester si BackgroundLeakMean/P99 s'améliore sans casser F1_open.
+# ============================================================================
+
+loss:
+  name: GranularSinoLoss
+  params:
+    lambda_fp: 8.0       # ↑ baseline=5.0
+    lambda_grad: 1.0
+    lambda_high: 2.0
+    gamma_high: 2.0
+    tau_low: 1.0e-4
+    apply_sigmoid: false
+

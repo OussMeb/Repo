@@ -1,0 +1,11 @@
+loss:
+  name: BalancedLogSpectralLoss
+  params:
+    lam_pix: 1.0
+    lam_grad: 0.20
+    lam_spec: 0.30
+    k_log: 20.0
+    w_min: 0.20
+    p_w: 0.35
+    apply_sigmoid: true
+

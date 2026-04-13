@@ -1,0 +1,203 @@
+# ============================================================================
+# RUN: HALO_PATCH_BASELINE
+# ============================================================================
+# Configuration spécifique pour validation des paramètres de patch:
+# - patch_in_cp: 768 (entrée du backbone)
+# - patch_out_cp: 512 (zone supervisée)
+# - halo_cp: 128 (contexte de part et d'autre)
+#
+# Profil: SAFE (batch=6, workers=4, accum=2)
+# OOM Risk: LOW
+# Effective batch size: 12
+#
+# Usage: python train.py --config configs/run_halo_patch_baseline.yaml
+# ============================================================================
+
+# ============================================================================
+# DATA CONFIGURATION
+# ============================================================================
+data:
+  # Chemin vers le dataset JUJU
+  path: /mnt/LeGrosDisque/Julien/sianogramme/JUJU
+
+  # Fichier JSON contenant la split train/val
+  split_json: /mnt/LeGrosDisque/Julien/sianogramme/JUJU/split_manifest.json
+
+  # Ratio train/val (0.9 = 90% train, 10% val)
+  ratio: 0.9
+
+  # Graine aléatoire pour la reproductibilité
+  random_seed: 44
+
+  # Taille du batch pour l'entraînement
+  batch_size: 6
+
+  # Nombre de workers pour le chargement des données
+  num_workers: 4
+
+  # Dimensions des images d'entrée et de sortie
+  W_in: 64  # Largeur d'entrée
+  W: 64     # Largeur de sortie
+
+  # Activation de l'augmentation des données
+  augment: true
+
+  # Paramètres pour les control points (CP)
+  cp_height_px: 12    # Hauteur en pixels des control points
+  patch_cp: 768       # Alias legacy: patch d'entree (patch_in_cp)
+  patch_in_cp: 768    # ✓ Patch vu par le backbone
+  patch_out_cp: 512   # ✓ Zone centrale supervisee/restituee
+  halo_cp: 128        # ✓ Contexte de part et d'autre de la zone utile
+  jitter_cp: 64       # Jitter appliqué aux control points
+
+# ============================================================================
+# MODEL ARCHITECTURE
+# ============================================================================
+model:
+  # Nom du modèle (variante leaf-wise anisotrope)
+  model_name: g1transunet_aniso_leafwise_v1
+
+  # Canaux d'entrée et de sortie
+  in_ch_drr: 16  # Nombre de canaux d'entrée (DRR)
+  out_ch: 1      # Nombre de canaux de sortie
+
+  # Architecture U-Net
+  base_ch: 128  # Nombre de canaux de base
+  depth: 4      # Profondeur du réseau
+  num_groups: 8 # Nombre de groupes pour GroupNorm
+
+  # Paramètres FiLM (Feature-wise Linear Modulation)
+  film_extra_dim: 7         # Dimensions supplémentaires pour FiLM
+  use_sincos_angles: true   # Utiliser sin/cos pour encoder les angles
+  film_hidden: 512          # Taille de la couche cachée FiLM
+  use_film_all_levels: true # Appliquer FiLM à tous les niveaux
+  film_on_decoder: false    # Appliquer FiLM sur le décodeur
+  film_light_mode: true     # FiLM allégé: global + bottleneck uniquement
+
+  # Blocs résiduels
+  use_resblocks: true  # Utiliser des blocs résiduels
+  res_dropout: 0.05    # Dropout dans les blocs résiduels
+
+  # Bottleneck avec blocs dilatés
+  bneck_dilated_blocks: 1  # Nombre de blocs dilatés dans le bottleneck
+  bneck_dropout: 0.10      # Dropout du bottleneck
+
+  # Bottleneck avec convolutions horizontales
+  bneck_horiz_blocks: 0   # Désactivé en mode anisotrope leaf-wise
+  bneck_horiz_k: 11       # Taille du kernel horizontal
+  bneck_horiz_dropout: 0.10  # Dropout des blocs horizontaux
+
+  # Transformer (désactivé)
+  use_transformer: false    # Désactive complètement CPTransformer
+  d_model: 256            # Dimension du modèle transformer
+  nhead: 8                # Nombre de têtes d'attention
+  mlp_ratio: 4.0          # Ratio MLP dans le transformer
+  transformer_layers: 0   # Ignoré car use_transformer=false
+
+  # Optimisations et options
+  use_ckpt: false         # Utiliser gradient checkpointing
+  pool_w_levels: 0        # Niveaux de pooling
+  pool_w_factor: 2        # Facteur de pooling
+  shape_debug: false      # Mode debug pour les shapes
+  anisotropic_leafwise: true  # Conv (3,1) pour éviter le mélange inter-lames
+  early_width_mode: nearest   # Réduction W avec lissage minimal
+
+  # Global refiner post-stitching (stage 2) - desactive pour serie halo-first
+  use_global_refiner: false
+  refiner_hidden: 128
+  refiner_layers: 4
+  refiner_kernel_size: 5
+  refiner_dilations: [1, 2, 4, 8]
+  refiner_dropout: 0.05
+  refiner_cond_dim: 32
+  refiner_alpha_init: 0.0
+
+  # Petit bloc local CP-only en sortie patch-wise (optionnel)
+  use_patch_cp_head: false
+  patch_cp_head_hidden: 128
+  patch_cp_head_layers: 3
+  patch_cp_head_kernel_size: 5
+  patch_cp_head_dilations: [1, 2, 4]
+  patch_cp_head_dropout: 0.05
+  patch_cp_head_alpha_init: 0.0
+
+# ============================================================================
+# TRAINING CONFIGURATION
+# ============================================================================
+training:
+  training_mode: single_stage
+  stage1_epochs: 160
+  stage2_epochs: 40
+  stage2_learning_rate: 1.0e-4
+  freeze_backbone_stage2: true
+  lambda_refiner_delta: 1.0e-3
+  train_full_batch_size: 1
+
+  # Paramètres d'entraînement de base
+  n_epochs: 200                # Nombre total d'époques
+  learning_rate: 8.0e-5        # Taux d'apprentissage initial
+  weight_decay: 1.0e-5         # Régularisation L2
+  accum_steps: 2               # Effective batch size = 6 * 2 = 12
+
+  # Mixed Precision Training (AMP)
+  use_amp: true                # Activer l'entraînement en précision mixte
+  amp_dtype: bf16              # Type de données (bf16 ou fp16)
+
+  # Gradient Clipping
+  clip_grad_norm: 0.5          # Norme maximale du gradient
+
+  # Learning Rate Scheduler (ReduceLROnPlateau)
+  scheduler_patience: 5        # Patience avant réduction du LR
+  scheduler_factor: 0.5        # Facteur de réduction du LR
+  scheduler_min_lr: 1.0e-7     # LR minimal
+  scheduler_threshold: 1.0e-4  # Seuil de changement pour déclencher le scheduler
+  scheduler_cooldown: 2        # Périodes de cooldown après réduction
+
+  # Exponential Moving Average (EMA)
+  use_ema: true                # Utiliser EMA pour les poids du modèle
+  ema_decay: 0.9995            # Facteur de décroissance EMA
+
+  # Sauvegarde et évaluation
+  save_epoch_freq: 5           # Fréquence de sauvegarde (en époques)
+  validation_freq: 1           # Fréquence de validation (en époques)
+  save_best: true              # Sauvegarder le meilleur modèle
+  best_metric: val_loss        # Métrique pour sélectionner le meilleur modèle
+
+  # Visualisation pendant l'entraînement
+  visual_epoch_train: 1        # Fréquence de visualisation (train, en époques)
+  visual_epoch_val: 1          # Fréquence de visualisation (val, en époques)
+  visual_batch_train: 50       # Réduit l'overhead I/O quand on pousse le débit
+  visual_batch_val: 10         # Réduit l'overhead I/O en validation
+
+  # Normalisation des données de dose et durée
+  dose_min_gy: 49.0            # Dose minimale en Gray
+  dose_max_gy: 70.0            # Dose maximale en Gray
+  cp_dur_min_sec: 0.285        # Durée minimale du CP en secondes
+  cp_dur_max_sec: 0.43         # Durée maximale du CP en secondes
+
+  # Options FiLM et métriques
+  film_with_presence: true     # Inclure la présence PTV dans FiLM
+  log_extra_metrics: true      # Logger des métriques supplémentaires
+  wmae_alpha: 0.5              # Alpha pour la métrique WMAE
+
+# ============================================================================
+# LOSS FUNCTION CONFIGURATION
+# ============================================================================
+loss:
+  name: GranularSinoLoss
+  params:
+    lambda_fp: 5.0
+    lambda_grad: 1.0
+    lambda_high: 2.0
+    gamma_high: 2.0
+    tau_low: 1e-4
+    apply_sigmoid: false
+
+# ============================================================================
+# GENERAL CONFIGURATION
+# ============================================================================
+run_root: runs              # Répertoire racine pour les runs
+device: cuda                # Device d'entraînement (cuda ou cpu)
+resume: false               # Reprendre l'entraînement depuis un checkpoint
+checkpoint_path: null       # Chemin vers le checkpoint (si resume=true)
+

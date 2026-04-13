@@ -1,0 +1,66 @@
+# ============================================================================
+# _BASE_CAMPAIGN — Paramètres figés pour TOUTE la campagne Oussama
+# ============================================================================
+# Ce fichier garantit que seed, split, refiner=off et loss de base
+# sont IDENTIQUES dans tous les essais, quelle que soit la phase.
+#
+# USAGE : toujours passer en PREMIER override, juste après le config de base.
+#   python train.py \
+#     --config configs/run_halo_patch_baseline.yaml \
+#     --override configs/campaign_oussama/_base_campaign.yaml \
+#     --override configs/campaign_oussama/_screening.yaml \
+#     --override configs/campaign_oussama/phase1_H3.yaml \
+#     --run_name camp_H3_screen_s44
+#
+# Ordre de merge : les overrides suivants surchargent CE fichier.
+# ============================================================================
+
+# ============================================================================
+# GPU / DEVICE
+# ============================================================================
+# "cuda"   → GPU par défaut (cuda:0) — cas normal
+# "cuda:1" → forcer le second GPU si plusieurs sont présents
+# "cpu"    → CPU uniquement (lent, debug seulement)
+#
+# Alternative sans modifier ce fichier :
+#   CUDA_VISIBLE_DEVICES=1 python train.py ...  ← restreint aux GPUs listés
+# ============================================================================
+device: cuda
+
+# ============================================================================
+# DATA — paramètres figés
+# ============================================================================
+data:
+  random_seed: 44        # seed figée pour toute la campagne
+  ratio: 0.9             # split train/val figé
+  jitter_cp: 32          # réduit à 32 (< halo_min=64 de H1) pour uniformité
+  num_workers: 4         # workers DataLoader — cohérent avec run_halo_patch_baseline
+
+# ============================================================================
+# MODEL — refiner global hors périmètre campagne
+# ============================================================================
+model:
+  use_global_refiner: false
+
+# ============================================================================
+# TRAINING — paramètres figés
+# ============================================================================
+training:
+  training_mode: single_stage
+  validation_freq: 1          # validation à chaque époque
+  save_best: true
+  best_metric: val_loss
+  # n_epochs, visual_* : définis par _screening / _medium / _confirmation
+
+# ============================================================================
+# LOSS — defaults figés (surchargés uniquement en Phase 3)
+# ============================================================================
+loss:
+  name: GranularSinoLoss
+  params:
+    lambda_fp: 5.0
+    lambda_grad: 1.0
+    lambda_high: 2.0
+    gamma_high: 2.0
+    tau_low: 1.0e-4
+    apply_sigmoid: false

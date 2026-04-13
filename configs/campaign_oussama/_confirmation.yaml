@@ -1,0 +1,17 @@
+# ============================================================================
+# _CONFIRMATION — Run long complet + visuels complets
+# ============================================================================
+# But : vérifier que le gagnant est robuste.
+# Répéter avec 3 seeds via --seed 44 / --seed 42 / --seed 123
+#
+# Visualisation complète : on veut voir tous les comportements fin de run.
+# ============================================================================
+
+training:
+  n_epochs: 200
+
+  # Visualisation — complète (identique au run_halo_patch_baseline)
+  visual_epoch_train: 1     # snapshot toutes les 5 epochs en train
+  visual_epoch_val: 1       # snapshot toutes les 2 epochs en val (suivi précis)
+  visual_batch_train: 50    # valeur baseline
+  visual_batch_val: 10      # valeur baseline

@@ -1,0 +1,12 @@
+# ============================================================================
+# PHASE 2 — P0 : Pas de tête locale (référence pour la phase 2)
+# ============================================================================
+# use_patch_cp_head = false
+#
+# Note : ce fichier est la "non-modification" pour la phase 2.
+#        Lancer avec la meilleure géométrie halo (phase1_H*.yaml) en amont.
+# ============================================================================
+
+model:
+  use_patch_cp_head: false
+

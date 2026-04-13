@@ -1,0 +1,17 @@
+# ============================================================================
+# PHASE 3 — L2 : apply_sigmoid = true
+# ============================================================================
+# Borne douce sur la sortie du réseau avant le calcul de la loss.
+# Empêche la sortie de partir à l'infini, peut stabiliser l'entraînement.
+# ============================================================================
+
+loss:
+  name: GranularSinoLoss
+  params:
+    lambda_fp: 5.0
+    lambda_grad: 1.0
+    lambda_high: 2.0
+    gamma_high: 2.0
+    tau_low: 1.0e-4
+    apply_sigmoid: true
+

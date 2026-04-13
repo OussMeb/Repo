@@ -1,0 +1,18 @@
+# ============================================================================
+# _MEDIUM — Durée moyenne (~2/3 du run complet) + visuels modérés
+# ============================================================================
+# But : raffinement local autour des 2-3 meilleures configs du screening.
+#
+# Visualisation modérée :
+#   - 1 snapshot toutes les 5 epochs (28 fois sur 140)
+#   - quelques batches par epoch
+# ============================================================================
+
+training:
+  n_epochs: 140
+
+  # Visualisation — modérée
+  visual_epoch_train: 5     # snapshot toutes les 5 epochs en train
+  visual_epoch_val: 5       # snapshot toutes les 5 epochs en val
+  visual_batch_train: 100   # quelques snapshots par epoch si dataset grand
+  visual_batch_val: 50      # quelques snapshots par epoch en val

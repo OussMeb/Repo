@@ -1,0 +1,19 @@
+# ============================================================================
+# PHASE 2 — P1 : Tête locale PatchCPHead1D activée (config pleine)
+# ============================================================================
+# hidden=128, layers=3, kernel=5, dilations=[1,2,4], dropout=0.05
+# alpha_init=0.0 → la tête démarre à contribution nulle (résiduel sûr)
+#
+# C'est la tête légère exacte décrite dans l'implémentation.
+# Comparer directement avec P0 sur la même géométrie halo gagnante.
+# ============================================================================
+
+model:
+  use_patch_cp_head: true
+  patch_cp_head_hidden: 128
+  patch_cp_head_layers: 3
+  patch_cp_head_kernel_size: 5
+  patch_cp_head_dilations: [1, 2, 4]
+  patch_cp_head_dropout: 0.05
+  patch_cp_head_alpha_init: 0.0
+

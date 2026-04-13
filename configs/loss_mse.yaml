@@ -1,0 +1,4 @@
+loss:
+  name: MSELoss
+  params: {}
+

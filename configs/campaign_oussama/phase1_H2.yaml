@@ -1,0 +1,20 @@
+# ============================================================================
+# PHASE 1 — H2 : Même cœur (512), halo plus modeste
+# ============================================================================
+# patch_in_cp  = 640  (backbone voit 640 CP)
+# patch_out_cp = 512  (zone supervisée/restituée — identique au baseline)
+# halo_cp      = 64   (contexte réduit de moitié vs baseline)
+#
+# Vérification : 640 = 512 + 2*64 ✓
+# Mémoire      : batch_size=6, accum=2 identique au base (patch intermédiaire)
+# ============================================================================
+
+data:
+  patch_in_cp: 640
+  patch_cp: 640        # alias legacy — doit rester cohérent avec patch_in_cp
+  patch_out_cp: 512
+  halo_cp: 64
+
+model:
+  use_patch_cp_head: false
+

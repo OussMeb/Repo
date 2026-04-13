@@ -1,0 +1,120 @@
+feat: Complete model simplification and dataset bug fixes
+
+Major refactoring for cleaner, more maintainable training pipeline:
+
+## 🚀 New Features
+
+### Model Architecture (model_simplified.py)
+- Modern PyTorch training loop (no more build_default)
+- Automatic Mixed Precision (AMP) support
+- Learning rate scheduler with plateau detection
+- Optional EMA (Exponential Moving Average)
+- Clean separation of concerns (training/validation/visualization)
+- 4.99M parameters, optimized architecture
+
+### Visualization Improvements
+- RGB visualization: 3 DRR channels instead of 16
+- Better visual interpretation (entry/exit/external)
+- Cleaner visualization code with signed error display
+- New demos and utilities (demo_rgb_viz.py, show_latest_visual.py)
+
+### Training Scripts
+- quick_test_juju.py: Fast 5-epoch validation run
+- launch_training_juju.py: Complete training pipeline
+- check_training_progress.py: Real-time monitoring
+- All scripts use simplified model by default
+
+## 🐛 Bug Fixes
+
+### Critical: ptv_channels.json bug (+57 patients recovered)
+- Fixed build_ptv_channel_metadata() in preprocessing/utils/ptv_utils.py
+- Was generating wrong channel names (ptv_low/mid/high instead of ptv_br/ri/hr)
+- Created regenerate_ptv_channels.py to fix existing dataset
+- Result: 667/668 patients now usable (99.85% vs 91.3%)
+- Gain: +57 patients = +9.3% training data
+
+### Dataset Validation
+- validate_juju_dataset.py: Complete dataset integrity check
+- diagnostic_patients_exclus.py: Patient exclusion analysis
+
+## 📊 Dataset Improvements
+
+Before fix:
+- 610 patients usable
+- 58 patients excluded (57 missing_ptv_json, 1 missing_x)
+
+After fix:
+- 667 patients usable (+9.3%)
+- 1 patient excluded (missing_x - expected)
+
+## 📚 Documentation
+
+### Comprehensive Guides
+- GUIDE_JUJU.md: Complete usage guide (updated)
+- GUIDE_REFERENCE_RAPIDE.md: Quick reference
+- COMMIT_STRATEGY.md: Git workflow strategy
+
+### Technical Documentation
+- BUG_FIX_ptv_channels.md: Detailed bug analysis
+- RESOLUTION_COMPLETE.md: Bug fix summary
+- MODIFICATIONS_VISUALS.md: Visualization changes
+- SUMMARY_RGB_VISUALIZATION.md: RGB viz explanation
+- ANALYSE_CHARGEMENT_DATASET.md: Dataset loading analysis
+- ANALYSE_EXCLUSIONS_PATIENTS.md: Patient exclusion analysis
+- REFACTORING_SUMMARY.md: Complete refactoring overview
+
+## 🎯 Benefits
+
+1. **Cleaner Code**: Modern PyTorch patterns, easier to maintain
+2. **Better Performance**: AMP support, optimized training loop
+3. **More Data**: +57 patients from bug fix
+4. **Better Debugging**: Comprehensive logging and monitoring
+5. **Better Visualization**: RGB interpretation easier to understand
+6. **Complete Documentation**: Everything is documented
+
+## 🔄 Migration Notes
+
+- Old model.py preserved for comparison
+- New code uses model_simplified.py
+- Both can coexist during validation period
+- After complete validation, simplified version will become main
+
+## ✅ Testing
+
+- Basic training validated (5 epochs test run)
+- Dataset integrity verified (667/668 patients)
+- Visualization tested and improved
+- Bug fixes validated (ptv_channels.json regenerated successfully)
+
+## 📁 Files Changed
+
+### New Files
+- model_simplified.py (main model implementation)
+- quick_test_juju.py (fast validation)
+- launch_training_juju.py (full training)
+- regenerate_ptv_channels.py (bug fix utility)
+- validate_juju_dataset.py (dataset validation)
+- check_training_progress.py (monitoring)
+- demo_rgb_viz.py (visualization demo)
+- show_latest_visual.py (latest results viewer)
+- diagnostic_patients_exclus.py (analysis)
+- example_usage.py (usage examples)
+- Multiple documentation files (*.md)
+
+### Modified Files
+- preprocessing/utils/ptv_utils.py (bug fix)
+- .gitignore (Python patterns added)
+
+### Preserved Files
+- model.py (original, for comparison)
+- All preprocessing code (unchanged except bug fix)
+
+## 🎓 Next Steps
+
+1. Complete training run with 667 patients
+2. Performance comparison old vs simplified
+3. After validation: rename simplified → main
+4. Merge into main branch
+
+Related issue: Dataset loading optimization and bug fixes
+
