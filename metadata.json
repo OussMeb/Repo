@@ -1,0 +1,81 @@
+{
+  "patient_id": "172475_0",
+  "patient_dir": "corrected/172475_0",
+  "ct_files_count": 219,
+  "rd_path": "corrected/172475_0/RD1.2.752.243.1.1.20240530105721503.1880.56170.dcm",
+  "rp_path": "corrected/172475_0/RP1.2.752.243.1.1.20240530105721502.1810.84575.dcm",
+  "rs_path": "corrected/172475_0/RS1.2.752.243.1.1.20240530105115286.1760.26208.dcm",
+  "ct_shape_zyx": [
+    219,
+    512,
+    512
+  ],
+  "ct_spacing_zyx_mm": [
+    2.0,
+    0.9765625,
+    0.9765625
+  ],
+  "ct_downsampled_shape_zyx": [
+    219,
+    128,
+    128
+  ],
+  "ct_downsampled_spacing_zyx_mm": [
+    2.0,
+    3.90625,
+    3.90625
+  ],
+  "dose_max_gy_original_grid": 57.52882766723633,
+  "rtplan": {
+    "n_cp": 853,
+    "sino_shape": [
+      853,
+      64
+    ],
+    "table_attr_used": "TableTopLateralPosition",
+    "beam_meterset_minutes": 5.017647,
+    "isocenter_xyz_mm": [
+      1.930954,
+      -245.507,
+      96.0
+    ],
+    "angle_minmax_deg": [
+      0.0,
+      352.9411926269531
+    ],
+    "table_minmax_mm": [
+      -89.51632690429688,
+      90.9339370727539
+    ]
+  },
+  "cp_dataset": {
+    "save_views": true,
+    "save_volumes": false,
+    "cp_stride": 1,
+    "max_cp": null,
+    "view_height": 96,
+    "leaf_count": 64,
+    "channels": [
+      "ct_projection",
+      "dose_projection"
+    ],
+    "cp_view_shape": [
+      853,
+      2,
+      96,
+      64
+    ],
+    "feature_columns": [
+      "sin_angle",
+      "cos_angle",
+      "table_norm",
+      "cp_index_norm",
+      "duration_norm"
+    ],
+    "table_axis": "z",
+    "ct_reducer": "mean",
+    "dose_reducer": "max",
+    "target_rule": "sino[cp_index, :] from RP private tag (300D,10A7)",
+    "leakage_note": "RP private sinogram values are target only and are not used as input features."
+  }
+}
